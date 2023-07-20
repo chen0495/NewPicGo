@@ -1,0 +1,1598 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
+%%
+%%
+\documentclass[preprint,review,compress,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%%\documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+\usepackage{amsthm}
+
+%% Chinese Language Support
+% \usepackage[UTF8]{ctex}
+% \usepackage[numbers,sort&compress]{natbib}
+%% algorithm support
+% \usepackage{bm}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{subfigure}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{multirow}
+\usepackage{appendix}
+\usepackage{longtable}
+\usepackage{lscape}     % for landscape
+
+\usepackage[linesnumbered, ruled]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}%
+
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+%% Support multilane formulate
+
+
+
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\journal{Nuclear Physics B}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{Solving engineering constraint optimization problems based on improved pigeon swarm algorithm}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[1]{V. {{\=A}}nand Rawat}
+\ead{rawat@mail.com}
+
+\author[1,3]{T. Rishi Nair}
+\ead{nair@mail.com}
+
+\author[2]{Han Theh Thanh \corref{cor1}}
+\ead{thanh@mail.com}
+
+\address[1]{Indian \TeX{} Users Group, Trivandrum 695014, India}
+\address[2]{Sayahna Foundation, Jagathy, Trivandrum 695014, India}
+\address[3]{\TeX{} Users Group, Providence, MA, USA}
+
+\cortext[cor1]{Corresponding author}
+
+% \affiliation{organization={},%Department and Organization
+%             addressline={}, 
+%             city={},
+%             postcode={}, 
+%             state={},
+%             country={}}
+
+\begin{abstract}
+%% Text of abstract
+In the design and optimization problems of industrial models, the solutions need to consider various constraints. These complex problems are collectively referred to as engineering constraint optimization problems. Efficient solving algorithms can achieve better results for such problems. In this paper, an improved pigeon swarm algorithm based on the dual nest strategy (DNPIO) is proposed. To address the shortcomings of the original pigeon swarm algorithm, such as premature convergence and weak global search capability, a novel dual nest military pigeon operator is introduced, inspired by the training process of short-range bidirectional communication in military pigeons. Additionally, Latin hypercube sampling and decay boundary conditions are implemented to enhance algorithm stability. To verify the performance of the algorithm, the DNPIO algorithm is compared with the PIO algorithm, four classical intelligent optimization algorithms, and three improved PIO algorithms. A total of 29 benchmark test functions from CEC2017 are selected for testing. The results of Friedman and Wilcoxon tests show that the DNPIO algorithm outperforms classical algorithms and similar improved PIO algorithms in 26 of the test functions, demonstrating strong optimization capabilities and stability. Finally, three practical single-objective engineering constraint optimization problems from CEC2020 are selected for testing. The experimental results demonstrate that the DNPIO algorithm obtains the best results among all nine participating algorithms, effectively solving design and optimization problems in industrial models.
+
+\end{abstract}
+
+%%Graphical abstract
+% \begin{graphicalabstract}
+% %\includegraphics{grabs}
+% \end{graphicalabstract}
+
+% %Research highlights
+% \begin{highlights}
+% \item 提出双巢策略的鸽群算法
+% \item 
+% \end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+鸽群算法 \sep
+双巢策略 \sep
+单目标优化 \sep
+工程约束优化
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+\section{Introduction}
+\label{}
+
+The intensification of global manufacturing competition has led to the necessity for companies to introduce high-quality and low-cost products to maintain competitiveness. It also requires engineers to consider a series of constraints such as technical limitations, cost control, and safety requirements in the process of designing and optimizing industrial models. These types of problems are known as engineering constrained optimization problems (COPs). Traditional mathematical optimization methods \cite{treanctua2022robust, ragsdell1976optimal} are limited in solving complex or non-convex problems due to the lack of gradient information or continuity of functions. On the other hand, intelligent optimization algorithms that do not rely on gradient information and are simple and efficient have shown superior adaptability and solution performance for most problems \cite{garg2016hybrid}. Intelligent optimization methods are generally inspired by the laws of nature and achieve problem solving by simulating natural evolution, collective behavior, or other intelligent behaviors.
+
+In recent decades, in addition to the classical intelligent optimization algorithms such as particle swarm optimization (PSO) \cite{488968, dorigo2006ant, yang2009cuckoo} and further research on these classical algorithms \cite{comert2023new, wu2023modified, li2022improved, zaman2022improved}, new nature-inspired intelligent algorithms \cite{mohamed2020gaining, al2020new, dehghani2023coati, naruei2022wild, oyelade2022ebola} have also been proposed successively. These optimization algorithms have been widely applied in various fields including manufacturing and finance \cite{fountas2021multi, sabzi2018fast, singh2019new}. At the same time, in order to better solve COPs in these application fields, scholars have conducted related studies on intelligent optimization methods. For example, Aoufi et al. \cite{aoufi2023nlbbode} proposed an optimizer based on fusion algorithms and applied it to the design problem of solar photovoltaic cell models. Gong et al. \cite{gong2022niching} embedded the PSO algorithm and local search techniques into the Chimp Optimization Algorithm (ChOA) to solve problems in multimodal search spaces, showing wider applicability in engineering applications. Qiao et al. \cite{9690609} proposed a framework based on multi-task evolution to solve multi-objective constrained optimization problems. Yang et al. \cite{yang2023general} divided the constraints into different levels and designed a hierarchical-driven local search strategy. They developed an adaptive search strategy based on surrogate-assisted evolutionary algorithm to solve expensive COPs. Evengeline et al. \cite{evangeline2022wind} proposed a constraint handling technique based on a constraint matrix and combined it with multi-objective optimization algorithms to solve the wind farm integration problem. Liang et al. \cite{liang2022chaotic} proposed a chaotic oppositional sine-cosine algorithm (COSCA) based on a local chaotic search technique to solve COPs. Kaveh et al. \cite{kaveh2022improved} applied the slime mould algorithm (SMA) based on the elite strategy for the first time to the optimization problem of building structure design. Qiao et al. \cite{qiao2022self} proposed a self-adaptive resources allocation-based differential evolution (SRADE) algorithm to achieve a balance between algorithm diversity and convergence by dynamically adjusting individual mutation strategies. Ruan et al. \cite{ruan2023quantum} formulated an algorithm framework based on the quantum approximate optimization algorithm (QAOA) by encoding different types of constraints, aiming to find approximate solutions to combinatorial constrained optimization problems. Zhang et al. \cite{zhang2023growth} proposed a new intelligent optimization method called the growth optimizer (GO) which simulates the human knowledge growth mechanism mathematically to achieve approximate solutions for COPs. Khan et al. \cite{khan2021quantum} proposed an optimization algorithm that supports quantum computing and applied it to solve constrained portfolio optimization problems.
+
+In addition, among numerous intelligent optimization methods, Pigeon-Inspired Optimization (PIO) is a metaheuristic algorithm proposed by Duan et al.\cite{duan2014pigeon} in 2014, which simulates the nesting behavior of pigeons. It has the characteristics of few parameters and fast convergence. In recent years, after development, it has been widely used in fields such as unmanned drone control, parameter optimization, image processing, and healthcare\cite{hangxuan2022multi,hou2023flexibility,duan2015echo,rajendran2016novel}. Currently, there is relatively little research on the use of the PIO algorithm to solve COPs. When solving parameter optimization problems, the PIO algorithm has issues such as premature convergence and weak global search capability. Some scholars have conducted related improvement studies on the PIO algorithm as follows: Sun et al.\cite{sun2014pid} proposed a PIO algorithm based on predation strategy, which introduces natural enemies to accelerate the escape of the pigeon flock from inferior areas, thereby improving the algorithm's search performance. Li et al.\cite{li2014bloch}) proposed a PIO algorithm based on quantum behavior to enhance the search capability and optimization efficiency of the algorithm. Liu et al.\cite{liu2016pendulum} proposed an improved PIO algorithm based on the Lévy flight mechanism, which performs better in escaping local optima. Yang et al.\cite{duan2018large,yang2018automatic} proposed a PIO algorithm with Cauchy mutation, which enhances population diversity and search capability by perturbing the flight trajectory of the pigeon flock. Pan et al.\cite{pan2022maximum} proposed a PIO algorithm based on the Taguchi method to improve the accuracy of photovoltaic cell design parameters. Ruan et al.\cite{ruan2022autonomous} proposed an improved PIO algorithm based on transfer learning strategies to improve algorithm accuracy. Yuan et al.\cite{yuan2022active} proposed a multi-objective PIO algorithm based on inflection point-driven selection strategy, which can enhance diversity and reduce the likelihood of falling into local optima. Hang et al.\cite{hangxuan2022multi} proposed a multi-strategy fusion pigeon optimization algorithm that can meet the accuracy and speed requirements of unmanned drone control. Hu et al.\cite{hu2022pigeon} proposed an adaptive PIO algorithm combining auction mechanisms to solve multi-objective fuzzy optimization problems. Yuan et al.\cite{yuan2023consider} designed a pigeon optimization algorithm based on the Tent map to solve the premature convergence problem. Liu et al.\cite{liu2023unmanned} proposed an improved PIO algorithm based on time variation and memory reflection mechanisms to enhance the diversity of the pigeon flock and prevent premature convergence.
+
+Based on the above literature analysis, this study introduces the PIO algorithm to better solve COPs. In response to the issues of premature convergence, falling into local optima, and weak global search capability in the original PIO algorithm, a new algorithm called Double Nest Pigeon-Inspired Optimization (DNPIO) is proposed by simulating the nest finding and autonomous homing behaviors of military pigeons during their training process. The DNPIO algorithm can maintain population diversity and break out of local optima, and it has stronger global search capability, demonstrating excellent performance in solving COPs.
+
+The main contributions of this article are as follows:
+\begin{enumerate}[(1)]
+\item Improving the original PIO algorithm. Introducing a new initialization method to generate higher-quality initial populations; proposing a novel two-stage operator, the Dual Nest Pigeon (DNPIO), to replace the original PIO algorithm, which balances the algorithm's global and local search capabilities; introducing a decay boundary condition to improve the algorithm's stability when dealing with certain functions.
+
+\item Performance comparison tests. For the results of the CEC2017 benchmark function tests, starting from both individual functions and overall results, the DNPIO algorithm was evaluated against other comparison algorithms using the Wilcoxon and Friedman test methods. The results showed that the DNPIO algorithm is overall superior to the other comparison algorithms.
+
+\item Practical COPs solving. The performance of the DNPIO algorithm was validated through three practical COPs: welding beam design, gearbox design, and multi-plate clutch brake design. The DNPIO algorithm achieved the best results for all three problems.
+
+\end{enumerate}  
+
+\section{Engineering constraint optimization problems and standard pigeon swarm algorithm}
+
+\subsection{Engineering constraint optimization problems}
+In COPs, the objective is to maximize or minimize the value of the objective function while satisfying a set of constraints. These constraints or the characteristics of the functions themselves often lead to the problems of gradient vanishing or exploding, which are challenging for traditional mathematical optimization methods. However, intelligent optimization methods can efficiently handle these constraints when solving COPs. As shown in Equation (1) below, in intelligent optimization methods, the minimization of COPs can be directly abstracted into a simple mathematical form.
+% 多行公式单编号
+\begin{equation}  \begin{split}  &min\ f(\vec{x}), \vec{x} = (x_1,x_2,...,x_D)\in R^D  \\&s.t\left\{\begin{matrix}  g_i(\vec{x})\le 0 & i=1,2,...,m\\  h_j(\vec{x})= 0 & j=1,2,...,p \\  \vec{lb}_k \le x_k\le \vec{ub}_k & k=1,2,...,D\end{matrix}\right.  \end{split}  \end{equation}
+Among them, $R^D$ represents the D-dimensional search space, $\vec{ub}$ and $\vec{lb}$ represent the upper and lower bounds of the search space, $g(x)$ and $h(x)$ are the inequality and equality constraints, respectively. Currently, there are several methods for handling constraints in intelligent optimization algorithms, including penalty function method \cite{carroll1961created,fiacco1966extensions}, special encoding method \cite{davis1991handbook}, repair method \cite{liepins1991genetic}, decomposition method \cite{deb2000efficient}, and hybrid method \cite{tahk2000coevolutionary}. Among these methods, the penalty function method is the most commonly used one due to its simplicity. The fitness function with a penalty term can be expressed as follows
+:
+\begin{equation}
+\psi (\vec{x}) = f(\vec{x})+\left [   r_1\cdot {\textstyle \sum_{1}^{m}G_i(\vec{x})} +  r_2\cdot{\textstyle \sum_{1}^{p}H_j(\vec{x})}  \right ] 
+\end{equation}
+The provided paragraph is written in Chinese. Here is the translation:
+
+Where $r_1,r_2$ are penalty coefficients, $G_i(\vec{x}),H_j(\vec{x})$ are functions representing inequality and equality constraints. When the constraints are satisfied, their values are 0; otherwise, their values are 1.
+
+\subsection{standard pigeon swarm algorithm}
+The design of the PIO algorithm is inspired by the special navigation behavior exhibited during the homing process of pigeons. In nature, pigeons first determine the approximate direction of their nest based on the Earth's magnetic field. Once they reach the vicinity of their destination, they continuously adjust their forward direction based on memorized landmarks, eventually accurately pinpointing the location of their nest. Based on the aforementioned process, the algorithm is divided into two distinct stages: the map and compass operator stage, and the landmark operator stage.
+\subsubsection{Map and Compass Operator}
+In nature, pigeons construct a rough map by using the magnetic field to determine the forward direction. In the map and compass operator, the map information is informed by collective cognitive factors. The collective cognitive factors consist of random factors and the current global optimal position of the pigeon group, representing the sharing and cooperation of map information within the pigeon group. In addition, the inertia factor is composed of inertia weight and the pigeon's own velocity, representing the pigeon's trust in its own movement state. The description of individual velocity and position update processes in the iteration of the map and compass operator is given by Equation (3) and Equation (4).
+\begin{equation}
+    \vec{V}_i^t = \vec{V}_i^{t - 1}{e^{ - Rt}} + \vec{rand}({\vec{X}_{g{\rm{b}}}} - \vec{X}_i^{t - 1})
+\end{equation}
+\begin{equation}
+    \vec{X}_i^t = \vec{X}_i^{t - 1} + \vec{V}_i^t
+\end{equation}
+Where: $R$ is the map and compass factor within the range of [0, 1], $t$ is the current iteration number, $\vec{rand}$ is a random vector following a uniform distribution within the range of [0, 1], and $\vec{X}_{gb}$ is the current global best position. When $t$ exceeds the maximum iteration number of the map and compass operator, the operator immediately stops working and enters the landmark operator.
+
+\subsubsection{Landmark Operator}
+In the landmark operator, the pigeon flock is divided into elite population and eliminated population based on their fitness. The eliminated population always follows the elite population, and the competition within the elite population becomes increasingly fierce over time. The number of pigeons selected for the elite population in each round will be halved according to Equation (5). The center position of the elite population is called the landmark, which attracts all pigeons to fly towards it. The description of landmark calculation and the process of pigeons flying towards the landmark are given by Equation (6) and Equation (7).
+\begin{equation}
+    {N^t} = \frac{{{N^{t - 1}}}}{2}
+\end{equation}
+\begin{equation}
+    {\vec{X_c}} = \frac{{\sum {\vec{X}_i^t F(\vec{X}_i^t)} }}{{{N^t}\sum {F(\vec{X}_i^t)} }}
+\end{equation}
+\begin{equation}
+    \vec{X}_i^t = \vec{X}_i^{t - 1} + \vec{rand}({\vec{X}_c} - \vec{X}_i^{t - 1})
+\end{equation}
+Where $N^t$ represents the current number of the elite population, $\vec{X}_c$ denotes the location of the landmark. The fitness function $F$ has different mapping methods for maximum value and minimum value problems. The fitness function $F$ is described by Equation (8) as follows:
+\begin{equation}
+    F({\vec{X}_i}) = \left\{ {\begin{array}{ccccccccccccccc}{\frac{1}{{f({\vec{X}_i}) - \min{f} + \varepsilon }}}&{\min }\\{f({\vec{X}_i}) - \min{f} + \varepsilon }&{\max }\end{array}} \right.
+\end{equation}
+In the equation (6), $f(\vec{X}_i)$ represents the objective value function, which needs to be mapped and transformed into a fitness function for convenience in computation. $\min{f}$ represents the theoretical minimum value or the current minimum value of the objective value function. $\varepsilon$ is usually set to 1e-8 to avoid any potential division by zero during the computation. Similarly, when $t$ exceeds the maximum iteration number of the landmark operator, the operator immediately stops working and outputs the result.
+
+\section{Improvement Based on Pigeon-Inspired Optimization}
+Although the PIO algorithm has demonstrated effectiveness and superiority in many fields \cite{haibin2017progresses}, some studies \cite{yuan2022active,liu2023unmanned} have pointed out its shortcomings, such as premature convergence and susceptibility to local optima. These shortcomings may be influenced by the strict real-time requirements in the field of unmanned aerial vehicle control. However, in the field of function optimization, the requirements for computation time are relatively relaxed. Moreover, the PIO algorithm itself is simple and efficient, and the operability of the two-stage operators is strong. Therefore, in order to improve the performance of the PIO algorithm in solving function optimization problems, especially COPs, it is necessary to enhance its global search capability. However, the extent of enhancement still needs to be determined. Morales pointed out in \cite{morales2020better} that to achieve good performance, each intelligent optimization algorithm needs to balance between exploration and exploitation behaviors. Therefore, in order to achieve a balance in the algorithm's search capability, this paper first introduces Latin hypercube sampling to achieve broad population coverage and enhance population diversity. Then, a military pigeon operator based on dual nests strategy is proposed to achieve a strong global search capability for the map. Finally, a decay boundary condition is adopted to guide the military pigeons back to the task area, avoiding repetitive searches by out-of-bound individuals or misleading searches at the edges, and improving the algorithm's stability.
+
+\subsection{Latin Hypercube Sampling Initialization}
+Agushaka pointed out in the literature \cite{agushaka2023efficient} that the quality of the initial population affects the convergence speed and accuracy of the algorithm, and the clustering phenomenon that may exist in the initial population can mislead other relatively dispersed pigeons, causing the algorithm to fall into local optima. Generally speaking, the initial population of the PIO algorithm is randomly generated within the search space, which cannot guarantee the stability and diversity of the population. Therefore, the Latin hypercube sampling (LHS) method is introduced as the population initialization strategy \cite{roomi2021multi, xiao2023application}.
+
+LHS was first proposed by Mckay \cite{mckay1979comparison} in 1979. It is a stratified sampling technique that generates representative samples from a multidimensional search space. It can generate a set of initial solutions that cover the search space uniformly and efficiently, while avoiding the sampling bias that may occur in traditional random sampling methods, thereby improving the subsequent search efficiency and population diversity. The idea is to divide each of the D dimensions into N equally probable subintervals, and then independently and uniformly sample each subinterval, and finally select the samples within each subinterval to form the initial population through permutation and combination.
+
+The comparison between random sampling and 2-dimensional population generated by LHS is shown in Figure 1 below. The population size is 20, and the range is [-1, 1]. It can be visually observed that the population distribution generated by LHS is more uniform and does not exhibit the common clustering phenomenon in random sampling, which can effectively cover the entire search space, facilitating the subsequent global search process.
+
+\begin{figure}[H]
+\centering
+\subfigure[Random]{
+\label{level.sub.1}
+\includegraphics[width=0.4\textwidth]{Picture/random.png}
+}
+\quad
+\subfigure[LHS]{
+\label{level.sub.2}
+\includegraphics[width=0.4\textwidth]{Picture/latin.png}
+}
+\caption{Random Initialization and LHS Initialization Visualization}
+\end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[scale=1]{Picture/latin.png}
+% \caption{随机初始化(左)和LHS初始化(右)}
+% \label{fig1}
+% \end{figure}
+Assuming the dimension of the population to be initialized is D, and the population size is N, the specific steps for generating the initial population using LHS are as follows:
+
+{\bf Step 1:} Determine parameters and ranges. First, initialize the population dimension D, population size N, upper bounds $\vec{ub}$, and lower bounds $\vec{lb}$ for all dimensions.
+
+{\bf Step 2:} Divide the intervals uniformly. Select a dimension and divide its upper and lower bounds interval $[\vec{lb}, \vec{ub}]$ into N equally probable subintervals. Repeat this process until all dimensions have been divided.
+
+{\bf Step 3:} Create the initial sampling matrix. Independently and uniformly randomly select a point from each subinterval of all dimensions and place them in the initial sampling matrix. Each row in the matrix represents an initial solution.
+
+{\bf Step 4:} Shuffle the sampling matrix. Randomly shuffle the sampling points within each column of the sampling matrix to break the linear relationship between initial individuals.
+
+\subsection{Military Pigeon Operator}
+In the map and compass operators of the PIO algorithm, the map and compass factors are crucial for individuals to escape from local optimal solutions based on inertial velocity. When they are set too large, it exacerbates the premature convergence phenomenon, while when they are set too small, it is prone to missing the local search area. Moreover, the factors are difficult to control due to the influence of search space, number of iterations, and other factors, with poor adaptability. This paper simulates the dual-nest strategy in the training process of military pigeons and proposes a two-stage military pigeon operator, which consists of training stage and combat stage. Before introducing the military pigeon operator in detail, it is necessary to understand the exponential sorting selection strategy and the Gaussian mutation operator.
+
+\subsubsection{Exponential Sorting Selection Strategy}
+The exponential sorting selection strategy \cite{shehab2021enhanced,abualigah2022selection} is a common selection operator in genetic algorithms (GA). It is simple to implement and controls the probability of each individual being selected by adjusting the base number. In the DNPIO algorithm, the main search area of the pigeon is from the global optimal to the individual optimal positions. There is a significant difference in the search probability between the global optimal and the second-best position. Therefore, the exponential sorting selection strategy is responsible for selecting some excellent military pigeons from the current population and replacing the global optimal position with their individual optimal positions. Since the individual optimal positions of the better pigeons are always preferred, there is no need to worry about the flock being misled by poorer individuals. The specific implementation steps of the exponential sorting selection strategy are as follows:
+
+{\bf Step 1:} Sort the population in ascending order of fitness $\vec{F}=[F_1,F_2,...,F_N]$ (in descending order for maximum value problem), with index set from 1 to the population size N.
+
+{\bf Step 2:} Allocate the weights for each individual in the population and calculate the probability of being selected according to the following equation (9). Here, $c$ is the base number within the interval (0,1).
+\begin{equation}
+    {P_i} = \frac{{{c^i}}}{{\sum\nolimits_{j = 1}^N {{c^j}} }}
+\end{equation}
+
+{\bf Step 3:} Divide the interval [0,1] into N sub-intervals according to the probabilities $\vec{P}=[P_1,P_2,...,P_N]$ and generate a uniformly distributed random number $rand$ within the interval [0,1]. When $rand$ falls into the corresponding sub-interval, it represents the selection of the individual for this iteration. The selected individual will be denoted as $S$.
+
+\subsubsection{Gaussian Mutation Operator}
+Gaussian mutation\cite{song2021dimension,zhou2022spiral} is a stochastic optimization strategy that applies random numbers following a normal distribution to the original positions. This strategy enables individuals to escape local optima regions. Due to the characteristics of the normal distribution, the probability of deviating from the mean decreases as the value is further away from the mean. Therefore, most particles will mutate in the vicinity of their original positions to assist local exploration, while a few particles will jump out of local optima for global search. Gaussian mutation is widely used in various intelligent optimization algorithms to avoid getting trapped in local optima and to maintain population diversity. The Gaussian mutation operator for generating a D-dimensional vector is represented by the following equation (10):
+\begin{equation}
+    \vec{Gaussia}{n_{\rm{D}}}(\mu ,{\sigma ^2})
+\end{equation}
+Where $\mu$ represents the mean of the normal distribution and is set constant at 0. $\sigma$ represents the standard deviation of the normal distribution, which nonlinearly decreases during the operation process. In the peregrine operator, the calculation of the Gaussian distribution standard deviation $\sigma$ in the two stages is similar, with only a relative offset difference. The specific calculation will be shown in the following text.
+
+\subsubsection{Pigeon Training Operator}
+
+In real life, communication using carrier pigeons is often long-range and one-way, meaning that pigeons are released in one location and they return with the message to their nest. However, in a combat area, short-range and two-way communication is often required. Therefore, in the training of military pigeons, there is a strategy called AB dual-nest, also known as round-trip training. The principle is to use the homing and feeding desires of military pigeons to force them to travel between points A and B. In point A, a nest is set up without providing food, while in point B, a feeding station is set up without providing a nest. This way, the military pigeons gradually develop the habit of round-trip eating and resting, thus forming a channel for short-range two-way communication.
+
+In the NDPIO algorithm, trainers first select the military pigeons that performed well in the previous training round based on their fitness. These selected pigeons have their individual historical best positions recorded and set as nest A. There can be multiple nest A, but they should be avoided in the same area. After all the pigeons are released, they are free to find food. Each pigeon will search for its own best feeding point, which is its individual historical best position, and these positions are considered as nest B.
+
+In each training round, the pigeons need to travel back and forth between nest A and nest B. Assuming the ideal state of a pigeon during this round-trip at a certain moment is shown in equation (11), it is allowed to fly across the nest areas.
+\begin{equation}
+    \left\{ {\begin{array}{ccccccccccccccc}{r = 3*rand - 1}\\{\vec{X}_i^m = r \cdot \vec{X}_{pb}^S + (1 - r) \cdot \vec{X}_{pb}^i}\end{array}} \right.
+\end{equation}
+Where $\vec{X}_{pb}^i$ represents the historical best record of the current individual, which is the position of nest B. $\vec{X}_{pb}^S$ represents the historical best position of the selected pigeons, which is the position of nest A. $S$ represents the selected individual based on the current fitness instead of individual historical best fitness, aiming to avoid crowding multiple nest As in a small area. $rand$ is a random number within the interval $[0,1]$.
+
+However, in the actual environment, when a military pigeon arrives in an unfamiliar area, it does not immediately exhibit the ideal round-trip behavior. Instead, it gradually approaches the ideal state after training and becoming familiar with the new terrain. In this section, the Gaussian mutation operator is used to simulate the interference caused by various factors in pigeon navigation, and the pigeons should gradually overcome these interferences over time. Therefore, the actual state of a military pigeon during its round-trip at a certain moment should be represented by the following equation (12).
+\begin{equation}
+    \left\{ {\begin{array}{ccccccccccccccc}{o = t/{T_1}}\\{\sigma  = \frac{1}{{1 + {e^{k \cdot o}}}}}\\{\vec{mutation} = (\vec{ub} - \vec{lb}) \cdot \vec{Gaussia}{n_D}(\mu ,{\sigma ^2})}\\{{\vec{X}_i} = \vec{X}_i^m + \vec{mutation}}\end{array}} \right.
+\end{equation}
+Where $k$ is the mutation amplification factor greater than 0, usually set to 16. Additionally, $\vec{ub}$ and $\vec{lb}$ are the upper and lower bounds, respectively. $T_1$ represents the maximum number of iterations for the pigeon training operator. $\vec{X}_i^m$ represents the ideal state of the pigeon during its round-trip, calculated using equation (11).
+
+\subsubsection{Military Pigeon Combat Operator}
+
+The military pigeon combat operator simulates the process in which pigeons from various subordinate command posts unidirectionally converge and transmit information to the central command post in a combat situation. The central command post is regarded as nest A, which represents the global optimum, while the subordinate command posts are considered as nest B, representing the individual historical best points. Therefore, during the combat stage, the position update of the military pigeons is shown by the following equation (13): 
+\begin{equation}
+    \left\{ {\begin{array}{ccccccccccccccc}{o = (t - {T_1})/{T_2}}\\{\sigma  = \frac{1}{{1 + {e^{k \cdot (o - 0.5)}}}}}\\{\vec{mutation} = ({\vec{X}_{gb}} - \vec{X}_{pb}^i) \cdot \vec{Gaussia}{n_D}(\mu ,{\sigma ^2})}\\{{\vec{X}_i} = {\vec{X}_{gb}} + \vec{mutation}}\end{array}} \right.
+\end{equation}
+Here, $\vec{X}_{gb}$ represents the current global optimal position, and $T_2$ is the maximum number of iterations for the military pigeon combat operator.
+
+\subsection{Boundary Conditions for Decay}
+In the individual movement process of swarm intelligence algorithms, it is inevitable that individuals will fly out of the search area. In this case, it is necessary to restrict the movement of these individuals through boundary conditions\cite{ccinar2017boundary,qin2019accelerated}, so that they return to the search area. Xu\cite{xu2007boundary} studied the influence of six boundary conditions on the PSO algorithm. According to whether particles are allowed to stay outside the region, they are divided into tangible and intangible boundaries, and further divided into absorption, decay, and reflection based on the change of velocity. The study concluded through experiments that decay has a stronger search ability, while intangible boundaries can make it perform better but also bring safety issues.
+
+This paper introduces tangible decay boundary conditions to restrict the movement of out-of-bound individuals in the DNP-IO algorithm. However, the decay method is different because the DNP-IO algorithm does not rely on the velocity of individuals. The individuals need to directly transition to the next state when returning to the task area. Specifically, when the homing pigeon is detected to leave the task area, the distance $d$ between it and the boundary is calculated. It is then placed back into the task area from the boundary with a distance of $(1 - \rho ) \cdot d$, where $\rho$ is the decay rate and is set to 0.1.
+
+\subsection{Basic Procedure of the DNPIO Algorithm}
+The algorithm first needs to set initial parameters and initialize the population using the Latin Hypercube Sampling (LHS) strategy. Then, the fitness is calculated, and the current individual's best position and the global best position are recorded. Next, based on the number of iterations, it is determined whether to enter the first phase or the second phase of the homing pigeon operator. If the first phase is entered, a subset of pigeons $S$ is selected, and the position is updated using Equation (12). Otherwise, the position is updated using Equation (13). When the maximum number of iterations is reached, the final result is outputted, and the algorithm stops. The basic procedure and pseudocode of the DNPIO algorithm are shown in Figure 2 and Algorithm 1, respectively.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Picture/DNPIO_English.png}
+\caption{Procedure of the DNPIO}
+\label{fig1}
+\end{figure}
+
+\begin{algorithm}[H]
+  initialization parameters\ $D,N,T_1,T_2,ub,lb,\rho ,k,c$;\\
+  Latin hypercube sampling initialization population;\\ 
+  \While{$t<T_1$}{
+    calculate $f(\vec{X})$,$\vec{X}_{pb}$,$\vec{X}_{gb}$\;
+    \While{updating population}{
+    select $S$ by $f(\vec{X})$ from population\;
+    update individual with formula.(12)
+    }
+    check the boundary\;
+  }
+  \While{$t<T_2$}{
+    calculate $f(\vec{X})$,$\vec{X}_{pb}$,$\vec{X}_{gb}$\;
+    \While{updating population}{
+    update individual with formula.(13)
+    }
+    check the boundary\;
+  }
+  \caption{pigeon-inspired optimization based on double nest,DNPIO}
+\end{algorithm}
+
+
+\section{CEC2017 Benchmark Test}
+In this chapter, the DNPIO algorithm is experimentally compared with the PIO algorithm and four classical optimization algorithms, namely the Particle Swarm Optimization (PSO) algorithm\cite{488968}, the Cuckoo Search Algorithm (CSA)\cite{yang2009cuckoo}, the Salp Swarm Algorithm (SSA)\cite{mirjalili2017salp}, and the Whale Optimization Algorithm (WOA)\cite{mirjalili2016whale}. Three improved PIO algorithms, namely the Prey-Predator Pigeon-Inspired Optimization (PPPIO)\cite{sun2014pid}, the Cauchy Mutation Pigeon-Inspired Optimization (CMPIO)\cite{yang2018automatic}, and the Levy Flight Pigeon-Inspired Optimization (LFPIO)\cite{liu2016pendulum}, are also included in the comparison. The benchmark functions used are the CEC2017 benchmark functions. The performance of the DNPIO algorithm in solving general parameter optimization problems is analyzed in terms of solution accuracy, convergence curve, population diversity, and exploration-exploitation capability based on multiple experiments. The Wilcoxon and Friedman tests are used to examine whether the DNPIO algorithm has significant performance advantages on individual functions or overall.
+
+
+The experimental software environment is Python 3.10.4 and the Windows 11 operating system. The hardware environment consists of an Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz and 16GB of memory. For all the algorithms involved in the testing, the population size is set to 30, the problem dimension is set to 30, and the search range is [-100, 100]. The maximum number of iterations is set to 5000. The remaining experimental parameters are listed in Table 1.
+\begin{table}[H]
+\centering
+\caption{Comparison of Algorithm Parameter Settings Table}
+\begin{tabular}{cc}
+\toprule
+Algorithm  & Parameter \\
+\midrule
+PSO   &   $c_1=2,c_2=2,\omega = 0.8$ \\
+CSA   &   $\alpha=1,p=0.3$\\
+SSA   &    $\backslash$ \\
+WOA   &    $p=0.5,a=2,b=1$\\
+PIO   &    $R=0.2$\\
+PPPIO &    $\rho = 1$\\
+CMPIO &    $a=1$\\
+LFPIO &   $k=100,\xi =0.5$\\
+DNPIO &   $k=16,\rho =0.1,c=0.5$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Introduction to CEC2017 Benchmark Functions}
+For intelligent optimization methods, it is necessary to choose appropriate benchmark test functions to fully evaluate the performance of algorithms across various metrics. In this section, the CEC2017 benchmark test functions are chosen to validate the performance of the DNPIO algorithm. CEC2017 is a special conference and competition in the field of evolutionary computation, which focuses on evaluating and comparing the performance of optimization algorithms for solving different real-parameter optimization problems. Table 2 provides the specific names of these benchmark test functions and their theoretical minimum values.
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+\centering
+\caption{CEC2017 Benchmark List}
+% \resizebox{\textwidth}{!}{
+\begin{tabular}{cccc}
+\toprule
+\multicolumn{2}{c}{Function}        & Name                                                       & Minimum  \\
+\midrule
+\multirow{2}{*}{Unimodal}     & F1  & Shifted and Rotated Bent Cigar   Function                 & 100  \\
+                        & F3  & Shifted and Rotated   Zakharov Function                   & 200  \\
+\midrule
+\multirow{7}{*}{Simple Multimodal} & F4  & Shifted and Rotated   Rosenbrock’s Function               & 300  \\
+                        & F5  & Shifted and Rotated   Rastrigin’s Function                & 400  \\
+                        & F6  & Shifted and Rotated   Expanded Scaffer’s F6 Function      & 500  \\
+                        & F7  & Shifted and Rotated   Lunacek Bi\_Rastrigin Function      & 600  \\
+                        & F8  & Shifted and Rotated   Non-Continuous Rastrigin’s Function & 700  \\
+                        & F9  & Shifted and Rotated   Levy Function                       & 800  \\
+                        & F10 & Shifted and Rotated Schwefel’s Function                   & 900  \\
+                   \bottomrule     
+\end{tabular}
+% }
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\thetable}{2}
+\caption{CEC2017 Benchmark List(Continued)}
+% \resizebox{\textwidth}{!}{
+\begin{tabular}{cccc}
+\toprule
+\multicolumn{2}{c}{Function}        & Name                                                       & Minimum  \\
+\midrule
+\multirow{10}{*}{Hybrid}  & F11 & Hybrid Function 1 (N=3)                                   & 1000 \\
+                        & F12 & Hybrid Function 2   (N=3)                                 & 1100 \\
+                        & F13 & Hybrid Function 3   (N=3)                                 & 1200 \\
+                        & F14 & Hybrid Function 4   (N=4)                                 & 1300 \\
+                        & F15 & Hybrid Function 5   (N=4)                                 & 1400 \\
+                        & F16 & Hybrid Function 6   (N=4)                                 & 1500 \\
+                        & F17 & Hybrid Function 6   (N=5)                                 & 1600 \\
+                        & F18 & Hybrid Function 6   (N=5)                                 & 1700 \\
+                        & F19 & Hybrid Function 6   (N=5)                                 & 1800 \\
+                        & F20 & Hybrid Function 6 (N=6)                                   & 1900 \\
+\midrule
+\multirow{10}{*}{Composition}  & F21 & Composition Function 1 (N=3)                              & 2000 \\
+                        & F22 & Composition   Function 2 (N=3)                            & 2100 \\
+                        & F23 & Composition   Function 3 (N=4)                            & 2200 \\
+                        & F24 & Composition   Function 4 (N=4)                            & 2300 \\
+                        & F25 & Composition   Function 5 (N=5)                            & 2400 \\
+                        & F26 & Composition   Function 6 (N=5)                            & 2500 \\
+                        & F27 & Composition   Function 7 (N=6)                            & 2600 \\
+                        & F28 & Composition   Function 8 (N=6)                            & 2700 \\
+                        & F29 & Composition   Function 9 (N=3)                            & 2800 \\
+                        & F30 & Composition   Function 10 (N=3)                           & 2900 \\
+\midrule
+\multicolumn{4}{c}{Search Range:   ${[}-100,100{]}^D$ } \\   
+\bottomrule     
+\end{tabular}
+% }
+\end{table}
+
+
+\subsection{Analysis of Solution Accuracy}
+To assess the optimization performance of the nine intelligent optimization algorithms, it is necessary to analyze the accuracy of their results. In order to ensure fairness, all algorithms are tested using the CEC2017 benchmark functions 20 times. Firstly, three metrics, namely minimum error value (min), mean error value (mean), and standard deviation value (std), are used to describe the accuracy of algorithmic results. The minimum error value reflects the theoretical performance of these algorithms to some extent. The mean error value and standard deviation value reflect the practical performance and result stability of the algorithms. To intuitively depict the comparative analysis of algorithmic accuracy, the number of times each algorithm ranks first in different indicators for different functions is presented. The definitions of the three metrics are shown in Equation (14) as follows:
+\begin{equation}
+\left\{\begin{matrix}min =  MIN(f_1,f_2,...,f_n)-f_{min}\\mean =   \frac{{\textstyle \sum_{i=1}^{n} \left (  f_{i}-f_{min}\right ) }}{n}  \\std = \sqrt{\frac{{\textstyle \sum_{i=1}^{n}\left ( f_{i}-f_{min}-mean \right )^2 }}{n} } \end{matrix}\right.
+\end{equation}
+where $n$ denotes the number of experiments, set as 20 in this paper, $f_i$ represents the minimum function values obtained by the algorithm, and $f_{min}$ represents the theoretical minimum function value given in Table 2. The final statistical results of the 20 experiments are shown in Table 3.
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\thetable}{3}
+  \caption{Result of CEC2017}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{ccccccccccc}
+    \toprule
+    \multicolumn{1}{l}{function} & type  & \multicolumn{1}{l}{PSO} & \multicolumn{1}{l}{CSA} & \multicolumn{1}{l}{SSA} & \multicolumn{1}{l}{WOA} & \multicolumn{1}{l}{PIO} & \multicolumn{1}{l}{PPPIO} & \multicolumn{1}{l}{CMPIO} & \multicolumn{1}{l}{LFPIO} & \multicolumn{1}{l}{DNPIO} \\
+    \midrule
+    \multirow{3}[0]{*}{F1} & min   & 3.76E+11 & 3.63E+08 & 4.82E+01 & 5.02E+02 & 2.63E+11 & 3.16E+07 & 4.20E+07 & 6.67E+05 & \textbf{2.17E+00} \\
+          & mean  & 5.34E+11 & 7.46E+08 & 5.56E+03 & 5.80E+08 & 3.98E+11 & 5.47E+07 & 2.06E+08 & 9.15E+06 & \textbf{2.68E+03} \\
+          & std   & 7.13E+10 & 1.33E+08 & 4.89E+03 & 1.62E+09 & 7.80E+10 & 1.06E+07 & 1.52E+08 & 7.22E+06 & \textbf{2.28E+03} \\
+    \multirow{3}[0]{*}{F3} & min   & 5.70E+04 & 2.26E+04 & 2.14E+03 & 9.46E+02 & 1.35E+05 & 8.95E+03 & 3.34E+04 & 1.99E+04 & \textbf{1.08E-08} \\
+          & mean  & 1.14E+05 & 3.63E+04 & 9.65E+03 & 1.62E+04 & 2.37E+05 & 4.37E+04 & 4.98E+04 & 3.77E+04 & \textbf{2.47E-02} \\
+          & std   & 1.94E+04 & 6.38E+03 & 4.48E+03 & 1.71E+04 & 5.60E+04 & 1.81E+04 & 1.02E+04 & 9.30E+03 & \textbf{9.16E-02} \\
+    \multirow{3}[0]{*}{F4} & min   & 5.94E+03 & \textbf{4.50E+01} & 7.16E+01 & 1.07E+02 & 2.89E+03 & 8.87E+01 & 7.60E+01 & 8.89E+01 & 8.63E+01 \\
+          & mean  & 1.05E+04 & \textbf{8.63E+01} & 1.13E+02 & 2.75E+02 & 8.81E+03 & 1.99E+02 & 1.40E+02 & 1.24E+02 & 8.80E+01 \\
+          & std   & 2.09E+03 & 1.15E+01 & 3.12E+01 & 1.67E+02 & 6.19E+03 & 1.33E+02 & 3.86E+01 & 1.93E+01 & \textbf{1.26E+00} \\
+    \multirow{3}[0]{*}{F5} & min   & 3.93E+02 & 1.56E+02 & 8.86E+01 & 1.03E+02 & 2.70E+02 & 1.33E+02 & 6.12E+01 & 1.25E+02 & \textbf{1.39E+01} \\
+          & mean  & 4.43E+02 & 2.01E+02 & 1.48E+02 & 1.78E+02 & 3.72E+02 & 2.26E+02 & 1.63E+02 & 1.67E+02 & \textbf{2.22E+01} \\
+          & std   & 1.92E+01 & 2.52E+01 & 3.99E+01 & 4.58E+01 & 5.75E+01 & 6.79E+01 & 5.88E+01 & 1.99E+01 & \textbf{4.61E+00} \\
+    \multirow{3}[0]{*}{F6} & min   & 1.03E+02 & 4.22E+01 & 3.38E+01 & 4.52E+01 & 6.26E+01 & 5.11E+01 & 1.16E+01 & 3.70E+00 & \textbf{1.30E-05} \\
+          & mean  & 1.11E+02 & 6.62E+01 & 4.69E+01 & 6.68E+01 & 9.50E+01 & 7.29E+01 & 2.18E+01 & 9.09E+00 & \textbf{7.74E-03} \\
+          & std   & 4.55E+00 & 1.04E+01 & 1.38E+01 & 1.76E+01 & 1.97E+01 & 1.24E+01 & 8.43E+00 & 3.27E+00 & \textbf{1.81E-02} \\
+    \multirow{3}[0]{*}{F7} & min   & 1.26E+03 & 2.79E+02 & 1.49E+02 & 1.87E+02 & 8.85E+02 & 5.67E+02 & 1.40E+02 & 1.61E+02 & \textbf{4.00E+01} \\
+          & mean  & 1.54E+03 & 3.02E+02 & 2.42E+02 & 4.33E+02 & 1.15E+03 & 6.79E+02 & 2.53E+02 & 2.28E+02 & \textbf{4.97E+01} \\
+          & std   & 1.57E+02 & 1.36E+01 & 5.34E+01 & 1.50E+02 & 1.57E+02 & 6.12E+01 & 6.82E+01 & 3.07E+01 & \textbf{4.94E+00} \\
+    \multirow{3}[0]{*}{F8} & min   & 3.51E+02 & 1.32E+02 & 8.16E+01 & 9.35E+01 & 2.71E+02 & 1.29E+02 & 7.29E+01 & 1.38E+02 & \textbf{1.09E+01} \\
+          & mean  & 4.02E+02 & 1.85E+02 & 1.55E+02 & 1.59E+02 & 3.49E+02 & 1.90E+02 & 1.37E+02 & 1.79E+02 & \textbf{1.92E+01} \\
+          & std   & 2.19E+01 & 2.04E+01 & 4.18E+01 & 4.17E+01 & 4.75E+01 & 5.17E+01 & 5.68E+01 & 2.15E+01 & \textbf{4.75E+00} \\
+    \multirow{3}[0]{*}{F9} & min   & 1.03E+04 & 4.96E+03 & 1.11E+03 & 1.59E+03 & 6.25E+03 & 3.29E+03 & 1.59E+02 & 2.95E+01 & \textbf{2.27E-13} \\
+          & mean  & 1.50E+04 & 6.99E+03 & 3.87E+03 & 5.22E+03 & 1.29E+04 & 9.31E+03 & 1.08E+03 & 1.84E+02 & \textbf{8.87E-13} \\
+          & std   & 1.67E+03 & 1.13E+03 & 1.66E+03 & 2.10E+03 & 3.58E+03 & 3.25E+03 & 5.85E+02 & 1.28E+02 & \textbf{1.73E-12} \\
+    \multirow{3}[0]{*}{F10} & min   & 7.28E+03 & 3.43E+03 & 1.92E+03 & 2.74E+03 & 6.05E+03 & 2.35E+03 & 6.78E+03 & 5.07E+03 & \textbf{8.52E+02} \\
+          & mean  & 7.51E+03 & 4.18E+03 & 3.54E+03 & 4.22E+03 & 7.54E+03 & 4.06E+03 & 7.29E+03 & 6.02E+03 & \textbf{2.47E+03} \\
+          & std   & \textbf{1.34E+02} & 3.63E+02 & 7.58E+02 & 1.13E+03 & 7.41E+02 & 7.68E+02 & 2.04E+02 & 4.50E+02 & 6.76E+02 \\
+    \multirow{3}[0]{*}{F11} & min   & 1.50E+03 & 9.54E+01 & 1.12E+02 & 5.77E+01 & 3.95E+03 & 1.38E+02 & 5.34E+01 & 7.59E+01 & \textbf{5.20E+01} \\
+          & mean  & 6.33E+03 & 1.50E+02 & 1.91E+02 & 1.10E+03 & 1.43E+04 & 2.99E+02 & \textbf{9.89E+01} & 1.37E+02 & 1.03E+02 \\
+          & std   & 1.65E+03 & 2.48E+01 & 5.08E+01 & 1.77E+03 & 6.62E+03 & 1.07E+02 & \textbf{2.38E+01} & 2.81E+01 & 4.24E+01 \\
+    \multirow{3}[0]{*}{F12} & min   & 3.07E+10 & 1.66E+07 & 1.42E+07 & \textbf{9.43E+03} & 4.84E+09 & 2.69E+07 & 5.08E+04 & 1.85E+05 & 5.97E+04 \\
+          & mean  & 4.83E+10 & 5.32E+07 & 1.28E+08 & 1.57E+08 & 2.40E+10 & 1.13E+08 & 8.15E+05 & 1.14E+06 & \textbf{5.12E+05} \\
+          & std   & 8.36E+09 & 1.59E+07 & 8.95E+07 & 3.33E+08 & 1.16E+10 & 6.96E+07 & 7.02E+05 & 9.72E+05 & \textbf{4.49E+05} \\
+    \multirow{3}[0]{*}{F13} & min   & 1.57E+10 & 4.10E+05 & 1.25E+04 & 1.44E+03 & 2.71E+08 & 9.21E+05 & 1.49E+02 & \textbf{1.22E+02} & 4.37E+02 \\
+          & mean  & 2.90E+10 & 2.48E+06 & 8.09E+04 & 1.74E+04 & 1.32E+10 & 1.79E+06 & 1.65E+04 & 1.26E+04 & \textbf{8.91E+03} \\
+          & std   & 8.24E+09 & 1.52E+06 & 5.07E+04 & 1.64E+04 & 9.73E+09 & 4.88E+05 & 1.60E+04 & 1.23E+04 & \textbf{1.19E+04} \\
+    \bottomrule
+    \end{tabular}%
+    }
+  \label{tab:addlabel}%
+\end{table}%
+
+\begin{table}[H]
+\renewcommand{\thetable}{3}
+  \centering
+  \caption{Result of CEC2017 \ \ (Continued.1)}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{ccccccccccc}
+    \toprule
+    \multicolumn{1}{l}{function} & type  & \multicolumn{1}{l}{PSO} & \multicolumn{1}{l}{CSA} & \multicolumn{1}{l}{SSA} & \multicolumn{1}{l}{WOA} & \multicolumn{1}{l}{PIO} & \multicolumn{1}{l}{PPPIO} & \multicolumn{1}{l}{CMPIO} & \multicolumn{1}{l}{LFPIO} & \multicolumn{1}{l}{DNPIO} \\
+    \midrule
+        \multirow{3}[0]{*}{F14} & min   & 9.47E+04 & 2.95E+02 & 1.48E+03 & 4.02E+03 & 4.91E+04 & 8.16E+02 & 2.25E+03 & 2.68E+03 & \textbf{1.48E+02} \\
+          & mean  & 6.35E+05 & 3.47E+02 & 2.18E+04 & 1.38E+05 & 4.42E+06 & 1.30E+04 & 2.40E+04 & 3.18E+04 & \textbf{2.52E+02} \\
+          & std   & 3.25E+05 & \textbf{3.19E+01} & 2.30E+04 & 2.59E+05 & 4.01E+06 & 1.88E+04 & 2.15E+04 & 2.47E+04 & 7.51E+01 \\
+    \multirow{3}[0]{*}{F15} & min   & 1.46E+09 & 5.74E+03 & 5.58E+03 & 1.03E+02 & 1.68E+06 & 6.75E+04 & 7.74E+01 & \textbf{3.11E+01} & 1.29E+02 \\
+          & mean  & 2.94E+09 & 1.43E+04 & 4.59E+04 & 9.63E+03 & 7.24E+08 & 2.36E+05 & 8.91E+03 & 5.62E+03 & \textbf{5.27E+03} \\
+          & std   & 1.11E+09 & \textbf{3.99E+03} & 2.58E+04 & 1.02E+04 & 1.16E+09 & 8.01E+04 & 7.63E+03 & 8.12E+03 & 5.91E+03 \\
+    \multirow{3}[0]{*}{F16} & min   & 1.88E+03 & 7.77E+02 & 6.41E+02 & 6.25E+02 & 1.63E+03 & 7.89E+02 & 6.38E+02 & 6.05E+02 & \textbf{8.15E+00} \\
+          & mean  & 2.94E+03 & 1.02E+03 & 1.14E+03 & 1.40E+03 & 2.54E+03 & 1.71E+03 & 1.48E+03 & 1.17E+03 & \textbf{1.94E+02} \\
+          & std   & 3.19E+02 & \textbf{1.40E+02} & 2.92E+02 & 4.58E+02 & 4.68E+02 & 5.05E+02 & 4.43E+02 & 2.55E+02 & 1.76E+02 \\
+    \multirow{3}[0]{*}{F17} & min   & 1.22E+03 & 2.31E+02 & 1.30E+02 & 1.64E+02 & 4.92E+02 & 3.43E+02 & \textbf{4.50E+01} & 7.83E+01 & 5.51E+01 \\
+          & mean  & 1.49E+03 & 3.47E+02 & 4.54E+02 & 6.40E+02 & 1.14E+03 & 8.51E+02 & 2.54E+02 & 1.84E+02 & \textbf{9.25E+01} \\
+          & std   & 1.57E+02 & 7.29E+01 & 2.32E+02 & 2.25E+02 & 3.18E+02 & 2.51E+02 & 2.32E+02 & 7.50E+01 & \textbf{3.76E+01} \\
+    \multirow{3}[0]{*}{F18} & min   & 1.71E+06 & 4.02E+04 & 2.99E+04 & 1.93E+04 & 2.36E+06 & 6.11E+04 & 7.19E+04 & 1.18E+05 & \textbf{1.35E+03} \\
+          & mean  & 1.01E+07 & 9.40E+04 & 3.54E+05 & 4.40E+05 & 2.85E+07 & 3.26E+05 & 9.43E+05 & 6.17E+05 & \textbf{1.14E+04} \\
+          & std   & 5.02E+06 & 3.03E+04 & 3.32E+05 & 9.35E+05 & 2.96E+07 & 4.78E+05 & 1.08E+06 & 4.45E+05 & \textbf{8.71E+03} \\
+    \multirow{3}[0]{*}{F19} & min   & 7.25E+08 & 3.93E+04 & 1.33E+05 & 1.82E+02 & 7.26E+07 & 1.23E+06 & 2.28E+02 & \textbf{4.67E+01} & 2.70E+02 \\
+          & mean  & 3.43E+09 & 6.20E+05 & 1.21E+07 & 9.24E+03 & 2.17E+09 & 8.03E+06 & 8.52E+03 & 1.01E+04 & \textbf{8.08E+03} \\
+          & std   & 1.50E+09 & 3.38E+05 & 1.50E+07 & 1.16E+04 & 4.27E+09 & 4.97E+06 & 1.20E+04 & \textbf{1.02E+04} & 1.26E+04 \\
+    \multirow{3}[0]{*}{F20} & min   & 6.26E+02 & 2.26E+02 & 2.98E+02 & 3.71E+02 & 4.38E+02 & 3.30E+02 & \textbf{3.46E+01} & 6.51E+01 & 6.43E+01 \\
+          & mean  & 7.91E+02 & 3.78E+02 & 4.69E+02 & 7.69E+02 & 9.79E+02 & 7.27E+02 & 2.12E+02 & 2.86E+02 & \textbf{1.56E+02} \\
+          & std   & 1.03E+02 & \textbf{6.75E+01} & 1.25E+02 & 2.71E+02 & 3.39E+02 & 2.46E+02 & 1.46E+02 & 1.11E+02 & 8.41E+01 \\
+    \multirow{3}[0]{*}{F21} & min   & 5.31E+02 & 3.41E+02 & \textbf{1.07E+02} & 2.82E+02 & 4.24E+02 & 2.93E+02 & 2.63E+02 & 2.86E+02 & 2.15E+02 \\
+          & mean  & 6.00E+02 & 3.85E+02 & 2.75E+02 & 3.72E+02 & 5.17E+02 & 4.04E+02 & 3.74E+02 & 3.66E+02 & \textbf{2.21E+02} \\
+          & std   & 2.12E+01 & 2.09E+01 & 1.02E+02 & 6.00E+01 & 5.04E+01 & 5.78E+01 & 6.24E+01 & 2.67E+01 & \textbf{4.74E+00} \\
+    \multirow{3}[0]{*}{F22} & min   & 5.13E+03 & 1.42E+02 & 1.00E+02 & 1.07E+02 & 3.61E+03 & 1.14E+02 & 1.10E+02 & 1.04E+02 & \textbf{1.00E+02} \\
+          & mean  & 5.99E+03 & 3.59E+02 & 4.91E+02 & 4.33E+03 & 6.53E+03 & 2.59E+03 & 1.26E+02 & 1.07E+02 & \textbf{1.00E+02} \\
+          & std   & 5.31E+02 & 9.55E+02 & 1.19E+03 & 1.59E+03 & 1.58E+03 & 2.15E+03 & 9.30E+00 & 1.33E+00 & \textbf{1.68E-08} \\
+    \multirow{3}[0]{*}{F23} & min   & 8.21E+02 & 3.93E+02 & 4.16E+02 & 4.53E+02 & 6.83E+02 & 5.28E+02 & 3.89E+02 & 4.31E+02 & \textbf{3.60E+02} \\
+          & mean  & 9.62E+02 & 5.38E+02 & 5.03E+02 & 6.22E+02 & 8.46E+02 & 6.89E+02 & 4.57E+02 & 5.03E+02 & \textbf{3.73E+02} \\
+          & std   & 4.47E+01 & 7.04E+01 & 5.91E+01 & 1.51E+02 & 1.05E+02 & 9.13E+01 & 3.34E+01 & 3.83E+01 & \textbf{7.79E+00} \\
+    \multirow{3}[0]{*}{F24} & min   & 1.01E+03 & \textbf{1.56E+02} & 4.87E+02 & 6.06E+02 & 6.84E+02 & 5.72E+02 & 4.87E+02 & 5.70E+02 & 4.31E+02 \\
+          & mean  & 1.09E+03 & 6.69E+02 & 5.46E+02 & 7.37E+02 & 8.93E+02 & 7.33E+02 & 5.68E+02 & 6.07E+02 & \textbf{4.44E+02} \\
+          & std   & 4.07E+01 & 1.26E+02 & 4.18E+01 & 7.56E+01 & 1.06E+02 & 9.16E+01 & 5.21E+01 & 1.72E+01 & \textbf{7.51E+00} \\
+    \multirow{3}[0]{*}{F25} & min   & 3.21E+03 & 3.92E+02 & 3.87E+02 & 3.97E+02 & 1.10E+03 & 3.89E+02 & 3.90E+02 & 3.88E+02 & \textbf{3.87E+02} \\
+          & mean  & 4.35E+03 & 3.94E+02 & 4.15E+02 & 5.23E+02 & 3.24E+03 & 4.26E+02 & 4.12E+02 & 4.06E+02 & \textbf{3.87E+02} \\
+          & std   & 5.59E+02 & 1.34E+00 & 2.22E+01 & 7.79E+01 & 1.58E+03 & 1.58E+01 & 1.40E+01 & 1.28E+01 & \textbf{1.12E-01} \\
+    \multirow{3}[0]{*}{F26} & min   & 6.73E+03 & 3.53E+02 & \textbf{2.00E+02} & 3.00E+02 & 4.39E+03 & 2.51E+03 & 1.71E+03 & 3.29E+02 & 9.27E+02 \\
+          & mean  & 7.44E+03 & \textbf{3.81E+02} & 2.17E+03 & 3.61E+03 & 6.33E+03 & 4.34E+03 & 2.38E+03 & 2.42E+03 & 1.13E+03 \\
+          & std   & 4.24E+02 & \textbf{1.51E+01} & 1.22E+03 & 1.14E+03 & 1.33E+03 & 1.19E+03 & 6.64E+02 & 7.49E+02 & 1.07E+02 \\
+    \multirow{3}[0]{*}{F27} & min   & 9.66E+02 & 5.40E+02 & 5.40E+02 & 6.34E+02 & 8.37E+02 & 6.30E+02 & 5.14E+02 & 5.10E+02 & \textbf{4.99E+02} \\
+          & mean  & 1.15E+03 & 5.51E+02 & 5.93E+02 & 8.17E+02 & 1.16E+03 & 8.47E+02 & 5.32E+02 & 5.35E+02 & \textbf{5.13E+02} \\
+          & std   & 7.85E+01 & 9.01E+00 & 3.68E+01 & 2.02E+02 & 2.63E+02 & 1.33E+02 & 8.79E+00 & 1.17E+01 & \textbf{7.46E+00} \\
+    \multirow{3}[0]{*}{F28} & min   & 3.34E+03 & 4.14E+02 & 4.06E+02 & 3.24E+02 & 1.90E+03 & 3.15E+02 & 4.30E+02 & 4.23E+02 & \textbf{3.00E+02} \\
+          & mean  & 3.88E+03 & 4.27E+02 & 4.65E+02 & 6.89E+02 & 3.33E+03 & 4.51E+02 & 4.62E+02 & 4.59E+02 & \textbf{3.96E+02} \\
+          & std   & 2.71E+02 & \textbf{6.77E+00} & 3.60E+01 & 2.50E+02 & 1.11E+03 & 3.40E+01 & 2.25E+01 & 2.22E+01 & 4.94E+01 \\
+    \multirow{3}[0]{*}{F29} & min   & 2.36E+03 & 7.66E+02 & 8.34E+02 & 1.12E+03 & 1.82E+03 & 1.14E+03 & 5.26E+02 & 7.14E+02 & \textbf{4.49E+02} \\
+          & mean  & 2.84E+03 & 1.01E+03 & 1.30E+03 & 1.49E+03 & 2.88E+03 & 1.65E+03 & 8.04E+02 & 9.31E+02 & \textbf{5.73E+02} \\
+          & std   & 2.41E+02 & 1.26E+02 & 2.79E+02 & 2.73E+02 & 7.93E+02 & 3.40E+02 & 2.04E+02 & 1.58E+02 & \textbf{9.94E+01} \\
+    \bottomrule
+    \end{tabular}%
+    }
+  \label{tab:addlabel}%
+\end{table}%
+
+\begin{table}[H]
+\renewcommand{\thetable}{3}
+  \centering
+  \caption{Result of CEC2017 \ \ (Continued.2)}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{ccccccccccc}
+    \toprule
+    \multicolumn{1}{l}{function} & type  & \multicolumn{1}{l}{PSO} & \multicolumn{1}{l}{CSA} & \multicolumn{1}{l}{SSA} & \multicolumn{1}{l}{WOA} & \multicolumn{1}{l}{PIO} & \multicolumn{1}{l}{PPPIO} & \multicolumn{1}{l}{CMPIO} & \multicolumn{1}{l}{LFPIO} & \multicolumn{1}{l}{DNPIO} \\
+    \midrule
+        \multirow{3}[0]{*}{F30} & min   & 9.37E+08 & 1.96E+06 & 4.61E+06 & 2.02E+04 & 1.01E+08 & 2.93E+06 & 5.49E+03 & 6.84E+03 & \textbf{4.65E+03} \\
+          & mean  & 1.95E+09 & 2.89E+06 & 3.58E+07 & 2.50E+06 & 1.44E+09 & 1.26E+07 & 1.05E+04 & 4.34E+04 & \textbf{1.00E+04} \\
+          & std   & 8.36E+08 & 5.76E+05 & 3.74E+07 & 3.50E+06 & 1.78E+09 & 8.99E+06 & \textbf{4.32E+03} & 3.77E+04 & 5.69E+03 \\
+    \midrule
+    \multirow{3}[0]{*}{Rank} & min   & 0     & 2     & 2     & 1     & 0     & 0     & 2     & 3     & 19 \\
+          & mean  & 0     & 2     & 0     & 0     & 0     & 0     & 1     & 0     & 26 \\
+          & std   & 1     & 6     & 0     & 0     & 0     & 0     & 2     & 1     & 19 \\
+    \bottomrule
+    \end{tabular}%
+    }
+  \label{tab:addlabel}%
+\end{table}%
+
+In the results of Table 3, $F_1$ to $F_3$ are unimodal functions. The DNPIO algorithm achieved significantly better performance than other comparative algorithms in all three indicators. Only in the mean and standard deviation items of $F_1$, SSA has a level of performance close to the DNPIO algorithm. Therefore, it can be seen that the DNPIO algorithm has the highest theoretical performance limit in unimodal functions, and its actual performance and stability are the best.
+
+$F_4$ to $F_{10}$ are simple multimodal functions. In $F_4$, CSA achieved the best error value and the smallest average error value. In $F_5$ to $F_9$, the DNPIO algorithm achieved the minimum value in all three indicators. In $F_{10}$, both the minimum error and average error performed better than other comparative algorithms. Therefore, it can be concluded that the DNPIO algorithm has the best theoretical performance and actual performance in most multimodal functions, and the algorithm has good stability.
+
+$F_{11}$ to $F_{20}$ are hybrid functions. The DNPIO algorithm had the lowest minimum error value in $F_{11}$, $F_{14}$, $F_{16}$, and $F_{17}$. It had the lowest average error value in $F_{12}$ to $F_{20}$. In $F_{12}$, $F_{13}$, $F_{17}$, and $F_{18}$, it had the lowest standard deviation. This indicates that the DNPIO algorithm has higher actual performance when facing hybrid functions, but its theoretical performance is poorer and has poorer stability. In composite functions $F_{21}$ to $F_{30}$, the DNPIO algorithm only performed worse than CSA, SSA, WOA, and LFPIO algorithms in $F_{26}$. The performance of the three indicators in the rest of the composite test functions was better than all the comparative algorithms. It can be concluded that the DNPIO algorithm has high actual performance, theoretical performance, and stability in solving composite function problems. Overall, the DNPIO algorithm achieved the highest scores in all three indicators, and it has a significant advantage in terms of theoretical and actual performance as well as the stability of algorithm results.
+
+\subsection{Convergence Curve, Population Diversity, and Exploration-Exploitation Analysis}
+Studying the minimum error value, average error value, and standard deviation of an algorithm cannot help understand the search behavior of the population. Therefore, to analyze the behavior of the population during iterations, three qualitative analysis experiments are introduced: convergence curve, population diversity curve, and exploration-exploitation curve. First, to observe the convergence speed and convergence accuracy of the algorithm, the real-time minimum error value is recorded and the convergence curve is plotted. Second, to examine the changes in population diversity during the algorithm iteration process, the population value that reflects the population diversity is monitored. The population value is calculated based on Equation (15) and the change curve is plotted. Finally, to gain a deep understanding of the relationship between the algorithm's global search capability and local exploitation capability, the exploration-exploitation evaluation method proposed in references \cite{cheng2014population,hussain2019exploration,morales2020better} is introduced. This evaluation can reflect the algorithm's global search capability and local exploitation capability separately in terms of exploration percentage and exploitation percentage, as shown in Equation (16).
+\begin{equation}
+    \left\{\begin{matrix}population = \frac{1}{D} \sqrt{ {\textstyle \sum_{i=1}^{N}}{\textstyle \sum_{d=1}^{D}}(x_{id}(t)-c_d(t))^2 }   \\c_d(t) = \frac{1}{D} {\textstyle \sum_{i=1}^{N}}{x_{id}(t)}\end{matrix}\right.
+\end{equation}
+\begin{equation}
+    \left\{\begin{matrix}exploration \left ( \% \right )=\frac{Div(t)}{Div_{max}}\times 100  \\exploitation \left ( \% \right )= \frac{\left | Div(t)-Div_{max} \right | }{Div_{max}}\times 100 \\Div(t) = \frac{1}{D}  {\textstyle \sum_{d=1}^{D}} \frac{1}{N} {\textstyle \sum_{i=1}^{N}}\left | median(x_d(t))-x_{di}(t) \right | \end{matrix}\right.
+\end{equation}
+In Equation (15), $D$ represents the problem dimension, $N$ represents the population size, and $x_{id}(t)$ represents the value of the $d$th dimension of the $i$th individual at iteration $t$. Similarly, in Equation (16), $Div_{max}$ represents the maximum value of $Div(t)$, and $median(x_d(t))$ represents the median value of the $d$th dimension for all individuals in the population.
+
+Furthermore, it should be noted that the values of the two indicators in Equation (16) are symmetric around $50\%$. Therefore, in this study, only the exploitation curve is plotted. The convergence curve, population curve, and exploitation curve of the F1 function are shown in Figure 3 and Figure 4, respectively. The statistical curves of functions F4 to F30 can be found in Appendix A, Figure 8 to Figure 34.
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f1.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f1_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f1_exploitation.png}
+}
+\caption{CEC2017-$F_1$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f3.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f3_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f3_exploitation.png}
+}
+\caption{CEC2017-$F_3$}
+\end{figure}
+
+For all the functions in the CEC2017 test, the convergence speed of the DNPIO algorithm is in the middle range among all the compared algorithms. It converges slower than the CSA, WOA, and PIO algorithms but faster than the LFPIO algorithm. At the same time, the convergence accuracy of the DNPIO algorithm is significantly better than the other compared algorithms. From the analysis of population diversity experiment, it can be seen that the population diversity of the DNPIO algorithm approaches 0 at around 2000 iterations. This means that the algorithm can find a better solution and concentrate the population in that area precisely when the military pigeon training operator runs halfway. From the analysis of development capability experiment, it can be seen that the local exploitation capability of the DNPIO algorithm is close to 0 at the beginning, and it steadily enhances during the iteration process, reaching its peak at the 2000th iteration. Then it continues the local exploitation stage until the end of the military pigeon training operator. It is also noted that the DNPIO algorithm switches to the military pigeon combat operator from the 4000th to the 5000th iteration, and continues the search by changing the flight mode. The global search capability is slightly enhanced at the beginning of this stage and then quickly disappears. This indicates that the DNPIO algorithm has relatively reasonable search balance compared to other compared algorithms, especially the PIO algorithm, which is an important factor supporting the performance of the DNPIO algorithm.
+
+\subsection{Wilcoxon Rank-Sum Test} The three indicators, minimum error value, average error value, and standard deviation value, cannot be precisely analyzed to determine the performance of the algorithms based on the Convergence curve analysis. Therefore, this paper adopts the Wilcoxon rank-sum test\cite{wilcoxon1992individual,kazikova2021does} to verify the superiority of the results between the DNPIO algorithm and the compared algorithms, with a significance level of $5\%$. The one-sided test is used, and when the p-value is less than $5\%$, it indicates that there is a significant difference between the DNPIO algorithm and the compared algorithms, and the value of the DNPIO algorithm is smaller. The results that do not satisfy the hypothesis test are shown in bold. The statistical results are shown in Table 4.
+\begin{table}[H]
+\renewcommand{\thetable}{4}
+\centering
+\caption{Result of Wilcoxon Rank-Sum Test}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ccccccccc}
+\toprule
+    & PSO      & CSA               & SSA      & WOA               & PIO      & PPPIO    & CMPIO             & LFPIO             \\
+\midrule
+F1  & 3.15E-08 & 3.15E-08          & 4.95E-02 & 1.22E-03          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F3  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F4  & 3.15E-08 & \textbf{2.01E-01} & 9.46E-05 & 3.15E-08          & 3.15E-08 & 4.94E-08 & 5.61E-07          & 4.94E-08          \\
+F5  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F6  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F7  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F8  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F9  & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F10 & 3.15E-08 & 3.15E-08          & 4.91E-05 & 3.23E-07          & 3.15E-08 & 9.64E-07 & 3.15E-08          & 3.15E-08          \\
+F11 & 3.15E-08 & 1.61E-04          & 5.19E-06 & 2.75E-06          & 3.15E-08 & 1.38E-07 & \textbf{4.14E-01} & 1.46E-03          \\
+F12 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 5.94E-03          & 3.15E-08 & 3.15E-08 & \textbf{9.25E-02} & 3.15E-03          \\
+F13 & 3.15E-08 & 3.15E-08          & 1.59E-07 & 6.41E-03          & 3.15E-08 & 3.15E-08 & 1.42E-02          & \textbf{1.22E-01} \\
+F14 & 3.15E-08 & 1.55E-05          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F15 & 3.15E-08 & 8.50E-06          & 3.71E-07 & \textbf{1.34E-01} & 3.15E-08 & 3.15E-08 & \textbf{1.02E-01} & \textbf{7.67E-01} \\
+F16 & 3.15E-08 & 3.15E-08          & 4.26E-08 & 3.66E-08          & 3.15E-08 & 3.15E-08 & 4.26E-08          & 3.66E-08          \\
+F17 & 3.15E-08 & 3.15E-08          & 6.65E-08 & 3.66E-08          & 3.15E-08 & 3.15E-08 & 1.99E-02          & 1.22E-05          \\
+F18 & 3.15E-08 & 3.15E-08          & 3.66E-08 & 7.70E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F19 & 3.15E-08 & 3.66E-08          & 3.15E-08 & \textbf{3.73E-01} & 3.15E-08 & 3.15E-08 & \textbf{4.57E-01} & \textbf{7.58E-02} \\
+F20 & 3.15E-08 & 3.71E-07          & 1.38E-07 & 3.66E-08          & 3.15E-08 & 4.26E-08 & \textbf{1.12E-01} & 6.12E-05          \\
+F21 & 3.15E-08 & 3.15E-08          & 3.42E-03 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F22 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F23 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.66E-08          & 3.15E-08          \\
+F24 & 3.15E-08 & 5.61E-07          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F25 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 3.15E-08          \\
+F26 & 3.15E-08 & \textbf{1.00E+00} & 3.42E-03 & 5.61E-07          & 3.15E-08 & 3.15E-08 & 3.15E-08          & 7.52E-06          \\
+F27 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 8.43E-07          & 1.44E-06          \\
+F28 & 3.15E-08 & 7.76E-04          & 1.96E-05 & 1.87E-06          & 3.15E-08 & 1.87E-06 & 5.88E-06          & 2.42E-06          \\
+F29 & 3.15E-08 & 5.73E-08          & 3.66E-08 & 3.15E-08          & 3.15E-08 & 3.15E-08 & 6.84E-05          & 1.19E-07          \\
+F30 & 3.15E-08 & 3.15E-08          & 3.15E-08 & 3.66E-08          & 3.15E-08 & 3.15E-08 & \textbf{2.85E-01} & 1.64E-06   \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+From the results of the Wilcoxon rank-sum test, it can be seen that in $F4$, the DNPIO algorithm did not achieve significant performance improvement over the CSA algorithm. However, in the remaining test functions $F1$ to $F10$, it shows significant performance improvement. Among the 10 mixed functions $F_{11}$ to $F_{20}$, DNPIO algorithm outperforms other compared algorithms significantly in 4 functions, while it only has slight advantage or even inferior performance in the remaining 6 functions. This also confirms the judgment in the analysis of solution accuracy, that the DNPIO algorithm is relatively unstable when facing mixed functions, but it still has strong overall performance. In the composite functions $F_{21}$ to $F_{30}$, except for $F_{26}$ where the CSA algorithm performs significantly better than the DNPIO algorithm, in $F_{30}$, the DNPIO algorithm is only slightly superior to the CMPIO algorithm, but it has significant advantages in the other composite functions.
+
+\subsection{Friedman Test}
+Friedman test\cite{demvsar2006statistical,ma2023performance} is a nonparametric statistical method that can simultaneously compare the performance of multiple algorithms to determine if there are any differences. The principle behind this test is to rank the results of each algorithm on each test function and calculate the average rank for the test statistic. The formula for calculating the test statistic is shown in Equation (17).
+\begin{equation}
+    \chi _F^2 = \frac{12N}{k(k+1)}\left [  {\textstyle \sum_{j=1}^{k}rank_j^2-\frac{k(k+1)^2}{44} }  \right ]  
+\end{equation}
+In Equation (17), $k$ represents the number of algorithms, $N$ represents the number of test functions, and $rank_j^2$ represents the average rank of the $j$-th algorithm. When both $k$ and $N$ are large, the test statistic follows a $\chi ^2$ distribution with $(k-1)$ degrees of freedom. However, it is generally believed that this test is overly conservative\cite{imanapproximations}, so Equation (18) is commonly used to calculate the test statistic.
+\begin{equation}
+F _F = \frac{(N-1)\chi_F ^2}{N(K-1)-\chi_F ^2 } 
+\end{equation}
+In Equation (18), the test statistic follows an $F$ distribution with $(k-1)$ and $(k-1)(N-1)$ degrees of freedom. The null hypothesis being tested is that "all algorithms perform equally," with a significance level of 0.05. The algorithm rankings from Table 3 can be seen in Table 5.
+\begin{table}[H]
+\renewcommand{\thetable}{5}
+\centering
+\caption{Algorithm Comparison Rank Table}
+% \resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccccc}
+\toprule
+function   & PSO  & CSA  & SSA  & WOA  & PIO  & PPPIO & CMPIO & LFPIO & DNPIO \\
+\midrule
+F1  & 9    & 7    & 2    & 6    & 8    & 4     & 5     & 3     & 1     \\
+F3  & 8    & 4    & 2    & 3    & 9    & 6     & 7     & 5     & 1     \\
+F4  & 9    & 1    & 3    & 7    & 8    & 6     & 5     & 4     & 2     \\
+F5  & 9    & 6    & 2    & 5    & 8    & 7     & 3     & 4     & 1     \\
+F6  & 9    & 5    & 4    & 6    & 8    & 7     & 3     & 2     & 1     \\
+F7  & 9    & 5    & 3    & 6    & 8    & 7     & 4     & 2     & 1     \\
+F8  & 9    & 6    & 3    & 4    & 8    & 7     & 2     & 5     & 1     \\
+F9  & 9    & 6    & 4    & 5    & 8    & 7     & 3     & 2     & 1     \\
+F10  & 8    & 4    & 2    & 5    & 9    & 3     & 7     & 6     & 1     \\
+F11  & 8    & 4    & 5    & 7    & 9    & 6     & 1     & 3     & 2     \\
+F12 & 9    & 4    & 6    & 7    & 8    & 5     & 2     & 3     & 1     \\
+F13 & 9    & 7    & 5    & 4    & 8    & 6     & 3     & 2     & 1     \\
+F14 & 8    & 2    & 4    & 7    & 9    & 3     & 5     & 6     & 1     \\
+F15 & 9    & 5    & 6    & 4    & 8    & 7     & 3     & 2     & 1     \\
+F16 & 9    & 2    & 3    & 5    & 8    & 7     & 6     & 4     & 1     \\
+F17 & 9    & 4    & 5    & 6    & 8    & 7     & 3     & 2     & 1     \\
+F18 & 8    & 2    & 4    & 5    & 9    & 3     & 7     & 6     & 1     \\
+F19 & 9    & 5    & 7    & 3    & 8    & 6     & 2     & 4     & 1     \\
+F20 & 8    & 4    & 5    & 7    & 9    & 6     & 2     & 3     & 1     \\
+\bottomrule
+\end{tabular}
+% }
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\thetable}{5}
+\centering
+\caption{Algorithm Comparison Rank Table \ \ (Continued)}
+% \resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccccc}
+\toprule
+function   & PSO  & CSA  & SSA  & WOA  & PIO  & PPPIO & CMPIO & LFPIO & DNPIO \\
+\midrule
+F21 & 9    & 6    & 2    & 4    & 8    & 7     & 5     & 3     & 1     \\
+F22 & 8    & 4    & 5    & 7    & 9    & 6     & 3     & 2     & 1     \\
+F23 & 9    & 5    & 3    & 6    & 8    & 7     & 2     & 4     & 1     \\
+F24 & 9    & 5    & 2    & 7    & 8    & 6     & 3     & 4     & 1     \\
+F25 & 9    & 2    & 5    & 7    & 8    & 6     & 4     & 3     & 1     \\
+F26 & 9    & 1    & 3    & 6    & 8    & 7     & 4     & 5     & 2     \\
+F27 & 8    & 4    & 5    & 6    & 9    & 7     & 2     & 3     & 1     \\
+F28 & 9    & 2    & 6    & 7    & 8    & 3     & 5     & 4     & 1     \\
+F29 & 8    & 4    & 5    & 6    & 9    & 7     & 2     & 3     & 1     \\
+F30 & 9    & 5    & 7    & 4    & 8    & 6     & 2     & 3     & 1     \\
+\midrule
+Avg & 8.69 & 4.17 & 4.07 & 5.59 & 8.31 & 5.93  & 3.62  & 3.52  & 1.10 \\
+\bottomrule
+\end{tabular}
+% }
+\end{table}
+
+
+Performing a Friedman test on the average rankings obtained from Table 5, the test statistic value $F _F=97.54$, derived from equations (17) and (18), is significantly larger than the critical value of the $F$ test at a significance level of $\alpha=0.05$, which leads to the rejection of the null hypothesis. Therefore, the conclusion is that there are significant differences in the performance of all algorithms, which is consistent with the conclusion obtained from the Wilcoxon rank-sum test.
+
+To further distinguish between the different algorithms tested, a post hoc Nemenyi test\cite{nemenyi1963distribution} needs to be conducted as shown in equation (19). The critical difference ($CD$) is calculated using the Nemenyi test, and if the difference in the average rankings of two algorithms is larger than $CD$, it indicates a significant difference between the algorithms.
+\begin{equation}
+    CD = q_a\sqrt{\frac{k(k+1)}{6N} } 
+\end{equation}
+In equation (19), with a significance level of $\alpha=0.05$, the value of $q_a$ is 3.102, and the calculated value of $CD$ is 1.604. The results are plotted as a critical difference (CD) graph, as shown in Figure 5. It can be observed that the DNPIO algorithm has the highest overall ranking and is significantly superior to the other algorithms. The differences between LFPIO, CMPIO, SSA, and CSA are relatively small. There is a small difference between WOA and CSA, but they are significantly different from the aforementioned algorithms. The PPPIO algorithm has a relatively close ranking to the WOA algorithm. The PSO and PIO algorithms have a huge difference compared to the other comparison algorithms, which confirms the superior performance of the DNPIO algorithm.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{Picture/friedman.png}
+\caption{CD plot}
+\label{fig1}
+\end{figure}
+
+
+\subsection{Integrity Ablation Experiment} To demonstrate the effectiveness of the proposed improvement strategies, integrity ablation experiments were conducted on each strategy in the DNPIO algorithm. The following strategies were incorporated into the original PIO algorithm: Latin hypercube sampling initialization strategy (LHS-PIO), soldier pigeon operator with exponential ranking selection mechanism (SM-PIO), soldier pigeon operator without selection mechanism (M-PIO), and decay boundary condition strategy (DB-PIO). These strategies, along with the standard PIO algorithm and the DNPIO algorithm, were tested on benchmark functions selected from four different categories in CEC2017. Each comparison algorithm was repeated 20 times, with a dimension of 50 and a maximum iteration setting of 1000, using the same parameters as mentioned earlier. Table 6 shows the solution accuracy of different improvement strategies, and Figures 6 and 7 illustrate the convergence curve for single-peaked and simple multimodal function testing, respectively. The convergence curve for hybrid and composite function testing can be found in Appendix B, Figure 35 and Figure 36.
+
+\begin{table}[H]
+\centering
+\renewcommand{\thetable}{6}
+\caption{Comparison of Results with Different Improvement Strategies}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccc}
+\toprule
+\multicolumn{2}{l}{函数}      & DNPIO             & LHS-PIO     & DB-PIO     & SM-PIO             & M-PIO     & PIO      \\
+\midrule
+\multirow{3}{*}{F1}  & min  & \textbf{1.41E+02} & 6.93E+11 & 1.68E+12 & 1.95E+02          & 1.64E+02 & 6.52E+11 \\
+                     & mean & 5.80E+03          & 1.13E+12 & 2.17E+12 & \textbf{2.62E+03} & 5.14E+03 & 1.10E+12 \\
+                     & std  & 6.24E+03          & 2.15E+11 & 2.63E+11 & \textbf{2.97E+03} & 4.85E+03 & 2.61E+11 \\
+\multirow{3}{*}{F5}  & min  & \textbf{5.49E+02} & 9.95E+02 & 1.39E+03 & 5.60E+02          & 5.87E+02 & 1.10E+03 \\
+                     & mean & \textbf{5.72E+02} & 1.22E+03 & 1.50E+03 & 5.86E+02          & 6.57E+02 & 1.25E+03 \\
+                     & std  & \textbf{1.59E+01} & 9.96E+01 & 7.63E+01 & 1.65E+01          & 3.49E+01 & 1.08E+02 \\
+\multirow{3}{*}{F9}  & min  & \textbf{9.62E+02} & 3.19E+04 & 4.46E+04 & 1.02E+03          & 2.75E+03 & 2.30E+04 \\
+                     & mean & \textbf{1.23E+03} & 4.42E+04 & 6.22E+04 & 1.40E+03          & 5.49E+03 & 4.16E+04 \\
+                     & std  & \textbf{1.81E+02} & 1.16E+04 & 1.08E+04 & 2.00E+02          & 1.63E+03 & 1.17E+04 \\
+\multirow{3}{*}{F12} & min  & 5.47E+06          & 9.16E+10 & 1.72E+11 & \textbf{3.94E+06} & 6.98E+06 & 1.02E+11 \\
+                     & mean & \textbf{3.92E+07} & 2.80E+11 & 5.40E+11 & 5.14E+07          & 4.49E+07 & 2.49E+11 \\
+                     & std  & \textbf{2.34E+07} & 1.11E+11 & 1.80E+11 & 3.88E+07          & 3.21E+07 & 1.45E+11 \\
+\multirow{3}{*}{F19} & min  & \textbf{2.53E+03} & 5.72E+08 & 4.75E+09 & 5.94E+03          & 3.06E+03 & 4.30E+08 \\
+                     & mean & \textbf{2.12E+04} & 7.72E+09 & 3.19E+10 & 2.53E+04          & 6.30E+04 & 7.22E+09 \\
+                     & std  & 3.68E+04          & 5.97E+09 & 1.99E+10 & \textbf{3.01E+04} & 1.20E+05 & 5.17E+09 \\
+\multirow{3}{*}{F24} & min  & 2.97E+03          & 3.89E+03 & 3.78E+03 & \textbf{2.97E+03} & 3.09E+03 & 3.73E+03 \\
+                     & mean & \textbf{2.99E+03} & 4.24E+03 & 3.96E+03 & 3.03E+03          & 3.16E+03 & 4.22E+03 \\
+                     & std  & \textbf{1.61E+01} & 2.30E+02 & 1.64E+02 & 3.77E+01          & 5.46E+01 & 2.15E+02 \\
+\multirow{3}{*}{F26} & min  & \textbf{4.50E+03} & 1.19E+04 & 1.28E+04 & 4.61E+03          & 5.53E+03 & 1.33E+04 \\
+                     & mean & \textbf{4.80E+03} & 1.66E+04 & 1.80E+04 & 5.16E+03          & 6.37E+03 & 1.74E+04 \\
+                     & std  & \textbf{1.86E+02} & 2.49E+03 & 3.53E+03 & 2.58E+02          & 4.87E+02 & 2.73E+03 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+From Table 6, it can be seen that the main improvement strategy that affects the accuracy of algorithmic solutions is the military pigeon operator. The combination of the Latin hypercube initialization strategy and the decay boundary condition strategy with the military pigeon operator can bring about a slight improvement in performance, while using them separately actually presents side effects. The three improved algorithms, DNPIO, SM-PIO, and M-PIO, which incorporate the military pigeon operator, have surpassed the standard PIO algorithm in all test functions, proving the effectiveness of the military pigeon operator. LHS-PIO and DB-PIO do not perform better than the standard PIO algorithm in most functions. However, the DNPIO algorithm, which combines these two strategies, achieves higher solution accuracy than the non-combined SM-PIO algorithm. The reason for this is that the essence of Latin hypercube initialization is to ensure a fully covered distribution of the initial population, while the effect of the decay boundary condition is to balance the algorithm's search ability in the edge and central regions. Neither of them has the ability to directly improve solution accuracy. On the contrary, they have a negative impact on local exploitation to some extent, resulting in poor accuracy. However, correspondingly, their integration also enhances the global search ability of the algorithm. Combining them with the military pigeon operator makes it easier for the pigeon to find better solutions. Lastly, the SM-PIO algorithm with a selection mechanism has higher solution accuracy and a more stable performance compared to the M-PIO algorithm, which also confirms the ability of the exponential ranking selection mechanism to avoid local optima. In conclusion, among the four individually integrated improvement strategies, the military pigeon operator is the main factor in performance improvement, while the exponential ranking selection mechanism, Latin hypercube initialization strategy, and decay boundary condition complement the military pigeon operator and can improve the overall solution performance of the DNPIO algorithm.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+
+
+\begin{figure}[H]
+\centering
+\subfigure{
+\includegraphics[width=11cm]{Picture/XR_Picture/f1.png}
+}
+\caption{Ablation Experiment-Unimodal-$F_1$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure{
+\includegraphics[width=8cm]{Picture/XR_Picture/f5.png}
+}
+\quad
+\subfigure{
+\includegraphics[width=6.5cm]{Picture/XR_Picture/f9.png}
+}
+\caption{Ablation Experiment-Simple Multimodal-$F_5$, $F_9$}
+\end{figure}
+
+\section{Solving Engineering Constrained Optimization Problems}
+
+This section aims to validate the performance advantages of the DNPIO algorithm on practical COPs. Optimization is conducted for three practical COPs: welded beam design, gearbox design, and multi-plate clutch brake design. The maximum number of iterations is set to 500. All comparative algorithms are run 10 times, and the best results are selected. The remaining parameters are set the same as in the previous chapter.
+
+\subsection{Welded Beam Design Problem}
+
+The objective of welded beam design is to minimize the cost $f(\vec{x})$ while satisfying five relevant parameter constraints. The four design factors are the weld width $h$, beam width $t$, beam length $l$, and beam thickness $b$, corresponding to $x_1$, $x_2$, $x_3$, $x_4$, and $x_5$ respectively. The welded beam design problem can be defined by the following equation (20).
+
+
+
+% 多行公式单编号
+\begin{equation} 
+\begin{split}  
+&min\ f(\vec{x}) = 0.04811x_3x_4(x_2+14)+1.10471x^2_1x_2   \\&s.t\left\{\begin{matrix} g_1(x) = x_1-x_4\le 0 \\ g_2(x) = \delta (x)-\delta _{max}\le 0 \\ g_3(x) = P-P_c(x)\le 0 \\ g_4(x) = \tau (x)-\tau _{max}\le 0 \\ g_5(x) = \sigma (x)-\sigma _{max}\le 0 \\0.125 \le x_1\le 2, 0.1 \le x_2,x_3\le 10,0.1 \le x_4 \le 2\end{matrix}\right.  \end{split}  
+\end{equation}
+
+\begin{equation}  \begin{split} &where\left\{\begin{matrix}\\ \tau = \sqrt{\tau'^2+\tau''^2+2\tau'^2\tau''^2\frac{x_2}{2R} }  \\ \tau''^2 = \frac{RM}{J}\\ \tau'^2 =\frac{P}{\sqrt{2}x_2x_1 }+L \\ M=p (\frac{x_2}{2}+L )\\ R=\sqrt{\frac{x^2_2}{4}+ (\frac{x_1+x_3}{2})^2} \\ J=2((\frac{x^2_2}{4}+ (\frac{x_1+x_3}{2})^2)\sqrt{2}x_1x_2 )\\\sigma (x)=\frac{6PL}{x_4x^2_3}\\\delta (x)=\frac{6PL^3}{Ex_4x^2_3}\\P_c(x)=\frac{4.013Ex_3x^3_4}{6L^2}(1-\frac{x_3}{2L}\sqrt{\frac{E}{4G}}   )\\L=14in,P=6000lb,E =30.10^6psi,\sigma _{max}=30000psi,\\ 
+\tau _{max} =13600psi,G=12.10^6,\delta _{max}=0.25in\\\end{matrix}\right.\end{split}  \end{equation}
+
+For the welded beam design problem, the optimal solutions of the DNPIO algorithm and its comparative algorithms in 10 repeated experiments are shown in Table 7. From the optimization results, it can be seen that the DNPIO algorithm achieves the minimum cost $f(\vec{x})=1.670218$ at the weld width $h=0.198832$, beam width $t=3.337365$, beam length $l=9.192024$, and beam thickness $b=0.198832$, ranking first among all results. The CMPIO and LFPIO algorithms, which are two pigeon-based improvement algorithms, rank second and third, respectively. This indicates that the DNPIO algorithm possesses stronger optimization capabilities for the welded beam design problem. In terms of algorithm running time, the PIO algorithm and PSO algorithm have shorter running times, which is attributed to their simpler structures. On the other hand, the CSA algorithm has a longer running time due to the additional fitness computation required during each iteration caused by using a greedy strategy. As for the DNPIO algorithm, it ranks fifth in terms of running time. Compared to the PIO and PSO algorithms, it incurs longer computing time due to the additional calculation of improvement strategies. However, compared to CSA, SSA, and WOA algorithms, it has a shorter running time. Overall, the running cost of the DNPIO algorithm is at a moderate level among the comparative algorithms.
+
+\begin{table}[H]
+\centering
+\renewcommand{\thetable}{7}
+  \caption{Result of Welded Beam Design Problem}
+  \resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccccc}
+\toprule
+类型    & PSO      & CSA      & SSA       & WOA      & PIO      & PPPIO    & CMPIO    & LFPIO    & DNPIO     \\
+\midrule
+$x_1$    & 0.220101 & 0.216166 & 0.280602  & 0.189238 & 0.160529 & 0.212837 & 0.198716 & 0.198652 & 0.198832  \\
+$x_2$    & 3.565073 & 3.215678 & 2.580348  & 3.528398 & 4.428671 & 3.19628  & 3.339625 & 3.342785 & 3.337365  \\
+$x_3$    & 8.554013 & 8.76333  & 7.758107  & 9.192011 & 8.633694 & 8.980922 & 9.192127 & 9.187451 & 9.192024  \\
+$x_4$    & 0.235469 & 0.220754 & 0.280602  & 0.198833 & 0.225407 & 0.213877 & 0.198833 & 0.199036 & 0.198832  \\
+\midrule
+$g_1$    & -1471.66 & -254.183 & -0.00306  & 0        & -0.63985 & -194.257 & -0.34625 & -2.75266 & -1.42E-07 \\
+$g_2$    & -747.869 & -270.787 & -157.964  & 0        & -3.57269 & -783.77  & -0.70149 & -0.87309 & -3.28E-05 \\
+$g_3$    & -0.01537 & -0.00459 & -3.13E-08 & -0.0096  & -0.06488 & -0.00104 & -0.00012 & -0.00038 & -3.67E-10 \\
+$g_4$    & -0.05889 & -0.05577 & -0.05503  & -0.054   & -0.05402 & -0.05912 & -0.054   & -0.05401 & -0.054    \\
+$g_5$    & -3499.22 & -1956.4  & -9011.56  & -0.04809 & -2385.48 & -1354.88 & -0.06265 & -16.5217 & -0.00025  \\
+\midrule
+$f(\vec{x})$ & 1.892906(8) & 1.768272(6) & 1.960946(9)  & 1.680847(4) & 1.851491(7) & 1.749066(5) & 1.670364(2) & 1.671469(3) & 1.670218(1)\\ 
+$t.s$ & 0.714155(1) & 1.540769(9) & 0.799924(7) & 0.815556(8) & 0.72414(2) & 0.76919(4) & 0.733241(3) & 0.789473(6) & 0.769232(5)\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\subsection{Design Problem of Gear Reducer}
+The goal of the gear reducer design problem is to minimize the weight of the reducer $f(\vec{x})$ under the influence of several limiting factors. This problem is affected by seven design factors, which are the face width of the reducer $b$, the module $m$, the number of teeth $z$, the length of the first shaft $l_1$, the length of the second shaft $l_2$, the diameter of the first shaft $d_1$, and the diameter of the second shaft $d_2$. The design factors are denoted as $x_1, x_2, ..., x_7$ respectively. The design problem of the gear reducer can be defined by the following equation (22).
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[scale=1]{Picture/speedReduce.png}
+% \caption{减速器设计问题(图非原创)}
+% \label{fig1}
+% \end{figure}
+
+% 多行公式单编号
+\begin{equation}  \begin{split}  &min\ f(\vec{x})=0.7854x_1x^2_2(3.3333x^2_3+ 14.9334x_3−43.0934) \\
+&−1.508x1(x^2_6+x^2_7) + 7.4777(x^3_6+x^3_7) + 0.7854(x_4x^2_6+x_5x^2_7)  \\
+&s.t\left\{\begin{matrix}
+ &g_1(x)=\frac{27}{x_1x^2_2x_3}-1 \le 0\\
+ &g_2(x)=\frac{397.5}{x_1x^2_2x^2_3}-1 \le 0\\
+ &g_3(x)=\frac{1.93x^3_4}{x_2x_3x^4_6}-1 \le 0\\
+&g_4(x)=\frac{1.93x^3_5}{x_2x_3x^4_7}-1 \le 0\\
+&g_5(x)=\frac{\sqrt{(\frac{745x_4}{x_2x_3})^2 +16.9\times 10^6 } }{110.0x^3_6}-1\le 0 \\
+&g_6(x)=\frac{\sqrt{(\frac{745x_4}{x_2x_3})^2 +157.5\times 10^6 } }{85.0x^3_7}-1\le 0 \\
+&g_7(x)=\frac{x_2x_3}{40}-1\le 0  \\
+&g_8(x)=\frac{5x_2}{x_1}-1\le 0  \\
+&g_9(x)=\frac{x_1}{12x_2}-1\le 0  \\
+&g_10(x)=\frac{1.5x_6+1.9}{x_4}-1\le 0  \\
+&g_11(x)=\frac{1.1x_7+1.9}{x_5}-1\le 0  \\
+&2.6\le x_1 \le3.6, 0.7 \le x_2 \le 0.8, 17\le x_3 \le28, 7.3\le x_4 \le 8,\\ &7.8 \le x_5 \le8.3, 2.9\le x_6 \le 3.9, 5\le x_7 \le 5.5
+\end{matrix}\right.  
+\end{split}  \end{equation}
+
+For the gear reducer design problem, the optimal solutions of DNPIO algorithm and its comparative algorithms in 10 repeated experiments are shown in Table 8. From the optimization results, it can be seen that the lightest weight $f(\vec{x})=2994.425$ is achieved when the face width of the reducer $b=3.5$, the module $m=0.7$, the number of teeth $z=17$, the length of the first shaft $l_1=7.3$, the length of the second shaft $l_2=7.71532$, the diameter of the first shaft $d_1=3.350541$, and the diameter of the second shaft $d_2=5.286655$. This solution ranks first. The results of LFPIO algorithm are slightly lower than DNPIO algorithm and rank second. After that, the CMPIO algorithm follows. From the results, it can be observed that DNPIO algorithm performs well in solving the gear reducer design problem. In terms of runtime, PIO and PSO algorithms still have the shortest runtime, while WOA algorithm has a slow runtime. CSA algorithm has the longest runtime, and the three improved PIO algorithms, CMPIO, LFPIO, and DNPIO, are all at a moderate level in terms of runtime.
+
+\begin{table}[H]
+\centering
+\renewcommand{\thetable}{8}
+  \caption{Result of Gear Reducer Problem}
+  \resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccccc}
+\toprule
+   & PSO      & CSA      & SSA       & WOA      & PIO      & PPPIO    & CMPIO     & LFPIO     & DNPIO     \\
+\midrule
+$x_1$  & 3.570364 & 3.538068 & 3.542016  & 3.512280 & 3.548091 & 3.565051 & 3.500054  & 3.500057  & 3.5       \\
+$x_2$  & 0.701075 & 0.707304 & 0.704249  & 0.7 & 0.702702 & 0.710266 & 0.7       & 0.700001  & 0.7       \\
+$x_3$  & 17.04651 & 17.17318 & 17.0305   & 17.00016       & 19.77586 & 17.26756 & 17.00005  & 17.00004  & 17        \\
+$x_4$  & 7.444939 & 7.829936 & 8.046458  & 7.819796  & 7.619543 & 7.386813 & 7.300798  & 7.300214  & 7.3       \\
+$x_5$  & 8.106642 & 8.213766 & 7.882035  & 7.800025 & 8.030974 & 8.024388 & 7.716721  & 7.715647  & 7.715321  \\
+$x_6$  & 3.48031  & 3.39517  & 3.373871  & 3.367636 & 3.54243  & 3.372131 & 3.350607  & 3.350548  & 3.350541  \\
+$x_7$  & 5.304308 & 5.289563 & 5.28669   & 5.309463 & 5.419597 & 5.297685 & 5.286665  & 5.28666   & 5.286655  \\
+\midrule
+$g_1$  & -2.9142  & -3.39688 & -2.91784  & -2.25758 & -7.64757 & -4.05548 & -2.15555  & -2.15559  & -2.155    \\
+$g_2$  & -112.433 & -124.511 & -112.016  & -99.8837 & -287.686 & -138.752 & -98.1457  & -98.1463  & -98.135   \\
+$g_3$  & -2.31902 & -1.43224 & -1.053    & -1.27085 & -3.01681 & -2.00458 & -1.92417  & -1.92483  & -1.92512  \\
+$g_4$  & -15.8279 & -15.2297 & -17.2026  & -17.9981 & -21.2157 & -16.7665 & -18.2991  & -18.3075  & -18.3099  \\
+$g_5$  & -118.328 & -42.1384 & -21.3739  & -15.6928 & -170.391 & -21.231  & -0.06351  & -0.00614  & -8.81E-10 \\
+$g_6$  & -8.39946 & -1.34618 & -1.32E-06 & -10.8937 & -61.1494 & -5.28694 & -0.0049   & -0.00283  & -1.92E-05 \\
+$g_7$  & -28.0491 & -27.8533 & -28.0063  & -28.0999 & -26.1035 & -27.7354 & -28.1     & -28.1     & -28.1     \\
+$g_8$  & -0.0927  & -0.00219 & -0.02949  & -0.01754 & -0.04921 & -0.01932 & -7.45E-05 & -7.62E-05 & -3.21E-08 \\
+$g_9$  & -6.9073  & -6.99781 & -6.97051  & -6.98246 & -6.95079 & -6.98068 & -6.99993  & -6.99992  & -7        \\
+$g_10$  & -0.32447 & -0.83718 & -1.08565  & -0.868342 & -0.4059  & -0.42862 & -0.37489  & -0.37439  & -0.37419  \\
+$g_11$ & -0.3719  & -0.49525 & -0.16668  & -0.05962 & -0.16942 & -0.29693 & -0.00139  & -0.00032  & -1.34E-06 \\
+\midrule
+$f(\vec{x})$  & 3090.78(6)  & 3103.037(7) & 3052.15(5)   & 3024.704(4) & 3699.535(9) & 3136.502(8) & 2994.516(3)  & 2994.471(2)  & 2994.425(1) \\
+$t.s$ & 0.678873(2) & 1.376847(9) & 0.704362(7) & 0.779247(8) & 0.679136(3) & 0.676533(1) & 0.693294(6) & 0.679788(4) & 0.692865(5) \\
+\bottomrule
+
+\end{tabular}}
+\end{table}
+
+\subsection{Design Problem of Multi-Plate Clutch Brake}
+The design problem of the multi-plate clutch brake involves five design factors, namely the inner radius $r_i$, outer radius $r_0$, thickness of the disc $t$, driving force $F$, and the number of friction surfaces $Z$, correspondingly represented as $x_1, x_2, ..., x_5$. The objective of the brake design problem is to minimize the mass of the brake while satisfying the given constraints. The design problem of the multi-plate clutch brake can be defined by the following equation (23).
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[scale=1]{Picture/multi.png}
+% \caption{多片式离合器制动器设计问题(图非原创)}
+% \label{fig1}
+% \end{figure}
+
+% 多行公式单编号
+\begin{equation}  \begin{split}  
+&min\ f(\vec{x}) = \pi (x^2_2 − x^2_1)x_3(x_5 + 1)\rho   \\
+&s.t\left\{\begin{matrix} g_1(x) = −p_{max}+p_{rz}\le 0 \\ 
+g_2(x) = p_{rz}V_{sr}-V_{sr,max}p_{max}\le 0 \\ 
+g_3(x) = \Delta R + x_1-x_2\le 0 \\ 
+g_4(x) = -L_{max} +(x_5+1)(x_3+\delta )\le 0 \\ 
+g_5(x) = -V_{sr,max}+V_{sr}\le 0 \\
+g_6(x) = T-T_{max} \le 0 \\
+g_7(x) = sM_s-M_h\le 0 \\ 
+g_8(x) = -T \le 0 \\
+60 \le x_1\le 80, 90 \le x_2\le 110,1 \le x_3 \le 3,0 \le x_4\le 1000,2 \le x_5 \le 9\end{matrix}\right.\\  
+\end{split}  
+\end{equation}
+
+\begin{equation}  \begin{split} 
+&where\left\{\begin{matrix}\\
+ M_h=\frac{2}{3}\mu x_4x_5\frac{x^3_2-x^3_1}{x^2_2-x^2_1}\ N.mm \\
+ \omega = \frac{\pi n}{30}\ rad/s\\
+ A =\pi (x^2_2-x^2_1)\ mm^2 \\
+ p_{rz}=\frac{x_4}{A}\ N/mm^2\\
+ V_{sr}=\frac{\pi R_{sr}n}{30}\ mm/s\\
+ R_{sr}=\frac{2}{3} \frac{x^3_2-x^3_1}{x^2_2x^2_1}\ mm\\
+ T=\frac{I_z\omega }{M_h+M_f}\ mm\\
+\Delta R=20mm,L_{max}=30mm,\mu =0.6,V_{sr,max}=10m/s,\delta =0.5mm,s=1.5,\\
+T_{max} = 15s,n=250rpm,I_z=55.m^2,M_s=40Nm,M_f=3Nm,p_{max}=1
+\end{matrix}\right.
+\end{split}  
+\end{equation}
+
+For the design problem of the multi-plate clutch brake, the optimal solutions of DNPIO algorithm and its comparative algorithms in 10 repeated experiments are shown in Table 9. From the optimization results, it can be seen that when the DNPIO algorithm is applied with the inner radius $r_i=70$, outer radius $r_0=90$, thickness of the disc $t=1$, driving force $F=8.315526$, and number of friction surfaces $Z=2$, the mass of the multi-plate clutch brake $f(\vec{x})=0.235242$ reaches the minimum, and DNPIO algorithm ranks first. Following that are the CMPIO algorithm and LFPIO algorithm, while the PIO algorithm performs the worst. This demonstrates the effectiveness of the improvement strategies, especially in DNPIO algorithm, for the multi-plate clutch brake design problem. DNPIO algorithm shows the strongest performance among all the comparative algorithms in optimizing the multi-plate clutch brake design problem.
+
+In terms of runtime, CMPIO, LFPIO, and DNPIO algorithms are still ranked in the middle, while the WOA algorithm has significant differences in runtime between the multi-plate clutch brake design problem and the gear reducer design problem. Its algorithm runtime is not stable enough.
+
+Through solving the above three engineering constraint optimization problems, starting from the optimization results and solving speed, the strengths and weaknesses of the standard PIO algorithm and the effectiveness of the improvement strategies in DNPIO algorithm are further validated. The PIO algorithm has fewer parameters and a simple structure, so it has a faster runtime. However, it has the problem of producing unsatisfactory results. The DNPIO algorithm significantly improves optimization performance while ensuring a reasonable runtime. The DNPIO algorithm can search for better solutions than other algorithms on average. This demonstrates the superior performance of DNPIO algorithm and its high practical value in real-world engineering applications.
+
+\begin{table}[H]
+\centering
+\renewcommand{\thetable}{9}
+  \caption{Result of Multi-Plate Clutch Brake Problem}
+  \resizebox{\textwidth}{!}{
+\begin{tabular}{cccccccccc}
+\toprule
+  & PSO      & CSA      & SSA      & WOA      & PIO      & PPPIO    & CMPIO     & LFPIO     & DNPIO    \\
+\midrule
+$x_1$ & 73.91186 & 70.16804 & 69.56327 & 70.06482 & 70.32377 & 70.11446 & 70.00171  & 70.00046  & 70       \\
+$x_2$ & 94.64407 & 90.41029 & 90.04074 & 90.09262 & 90.32453 & 90.15385 & 90.00174  & 90.00046  & 90       \\
+$x_3$ & 1.035233 & 1.001674 & 1.031013 & 1.000164 & 1.001003 & 1.00091  & 1.000017  & 1         & 1        \\
+$x_4$ & 723.7331 & 94.16817 & 715.3362 & 451.5337 & 835.2607 & 501.4319 & 188.5235  & 686.1476  & 8.315526 \\
+$x_5$ & 2.047085 & 2.042965 & 2        & 2.00001  & 2.041017 & 2.000791 & 2.000015  & 2.000005  & 2        \\
+\midrule
+$g_1$ & -0.7322  & -0.24224 & -0.47747 & -0.0278  & -0.00076 & -0.03939 & -2.55E-05 & -9.89E-10 & 0        \\
+$g_2$ & -25.322  & -25.4305 & -25.407  & -25.4995 & -25.4354 & -25.4961 & -25.4999  & -25.5     & -25.5    \\
+$g_3$ & -0.93408 & -0.99078 & -0.93033 & -0.95519 & -0.91725 & -0.9503  & -0.98125  & -0.93175  & -0.99917 \\
+$g_4$ & -9.98956 & -9.99843 & -9.98781 & -9.9924  & -9.98607 & -9.99158 & -9.99682  & -9.98842  & -9.99986 \\
+$g_5$ & -9.84164 & -9.82933 & -9.825   & -9.83035 & -9.83167 & -9.83049 & -9.83027  & -9.83026  & -9.83026 \\
+$g_6$ & -14.9809 & -14.8455 & -14.9791 & -14.967  & -14.9826 & -14.9703 & -14.9209  & -14.9783  & -13.2123 \\
+$g_7$ & -75234.7 & -9256.82 & -68818.2 & -43556.3 & -82525.6 & -48428.6 & -18133    & -66153.8  & -742.448 \\
+$g_8$ & -0.01912 & -0.1545  & -0.0209  & -0.03301 & -0.01743 & -0.02969 & -0.07913  & -0.02175  & -1.7877  \\
+\midrule
+$f(\vec{x})$ & 0.27012(9)  & 0.24278(7)  & 0.247714(8) & 0.235841(4) & 0.239674(6) & 0.236378(5) & 0.235253(3)  & 0.235244(2)  & 0.235242(1) \\
+$t.s$ & 0.49455(2) & 1.143426(9) & 0.633387(7) & 0.677055(8) & 0.494(1) & 0.588298(3) & 0.610199(5) & 0.620264(6) & 0.595479(4) \\
+\bottomrule
+
+\end{tabular}}
+\end{table}
+
+
+\section{Conclusion}
+This paper aims to solve engineering constraint optimization problems and proposes a novel army pigeon operator based on a dual-nest strategy inspired by the training process of army pigeons. This operator enhances the performance of the PIO algorithm in solving engineering constraint optimization problems. By introducing the Latin hypercube initialization population strategy and the attenuated boundary condition strategy, the PIO algorithm gains stronger stability and global search capability. In conjunction with the army pigeon operator, the algorithm's optimization performance is improved to a certain extent. The algorithm's performance is evaluated and compared using CEC2017. The experiments show that the DNPIO algorithm performs excellently in single-peak functions, simple multimodal functions, and composite functions. Although its performance in hybrid functions is slightly inferior, its overall performance is still better than other comparative algorithms. The application value of the DNPIO algorithm in practical engineering problems is demonstrated through welding beam design, gear reducer design, and multi-plate clutch brake design problems. The results show that the DNPIO algorithm achieves the best optimization results without adding extra computational burden. In future work, we plan to further improve the DNPIO algorithm's solution performance on hybrid function problems and extend the algorithm to the field of multi-objective optimization, further enhancing the optimization performance of the algorithm proposed in this paper.
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+\bibliographystyle{elsarticle-num} 
+\bibliography{ref}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+% \begin{thebibliography}{00}
+
+% %% \bibitem{label}
+% %% Text of bibliographic item
+
+% \bibitem{}
+
+% \end{thebibliography}
+\appendix
+\section{Statistical curve graph}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f4.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f4_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f4_exploitation.png}
+}
+\caption{CEC2017-$F_4$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f5.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f5_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f5_exploitation.png}
+}
+\caption{CEC2017-$F_5$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f6.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f6_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f6_exploitation.png}
+}
+\caption{CEC2017-$F_6$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f7.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f7_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f7_exploitation.png}
+}
+\caption{CEC2017-$F_7$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f8.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f8_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f8_exploitation.png}
+}
+\caption{CEC2017-$F_8$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f9.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f9_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f9_exploitation.png}
+}
+\caption{CEC2017-$F_9$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f10.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f10_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f10_exploitation.png}
+}
+\caption{CEC2017-$F_{10}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f11.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f11_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f11_exploitation.png}
+}
+\caption{CEC2017-$F_{11}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f12.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f12_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f12_exploitation.png}
+}
+\caption{CEC2017-$F_{12}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f13.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f13_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f13_exploitation.png}
+}
+\caption{CEC2017-$F_{13}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f14.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f14_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f14_exploitation.png}
+}
+\caption{CEC2017-$F_{14}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f15.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f15_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f15_exploitation.png}
+}
+\caption{CEC2017-$F_{15}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f16.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f16_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f16_exploitation.png}
+}
+\caption{CEC2017-$F_{16}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f17.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f17_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f17_exploitation.png}
+}
+\caption{CEC2017-$F_{17}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f18.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f18_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f18_exploitation.png}
+}
+\caption{CEC2017-$F_{18}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f19.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f19_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f19_exploitation.png}
+}
+\caption{CEC2017-$F_{19}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f20.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f20_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f20_exploitation.png}
+}
+\caption{CEC2017-$F_{20}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f21.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f21_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f21_exploitation.png}
+}
+\caption{CEC2017-$F_{21}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f22.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f22_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f22_exploitation.png}
+}
+\caption{CEC2017-$F_{22}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f23.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f23_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f23_exploitation.png}
+}
+\caption{CEC2017-$F_{23}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f24.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f24_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f24_exploitation.png}
+}
+\caption{CEC2017-$F_{24}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f25.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f25_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f25_exploitation.png}
+}
+\caption{CEC2017-$F_{25}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f26.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f26_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f26_exploitation.png}
+}
+\caption{CEC2017-$F_{26}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f27.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f27_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f27_exploitation.png}
+}
+\caption{CEC2017-$F_{27}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f28.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f28_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f28_exploitation.png}
+}
+\caption{CEC2017-$F_{28}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f29.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f29_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f29_exploitation.png}
+}
+\caption{CEC2017-$F_{29}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[Convergence curve]{
+\label{level.sub.1}
+\includegraphics[width=0.6\textwidth]{Picture/f30.png}
+}
+\quad
+\subfigure[population curve]{
+\label{level.sub.2}
+\includegraphics[width=0.35\textwidth]{Picture/f30_pop.png}
+}
+\quad
+\subfigure[exploitation curve]{
+\includegraphics[width=0.35\textwidth]{Picture/f30_exploitation.png}
+}
+\caption{CEC2017-$F_{30}$}
+\end{figure}
+
+\section{Ablation Experiment}
+
+\begin{figure}[H]
+\centering
+\subfigure{
+\includegraphics[width=8cm]{Picture/XR_Picture/f12.png}
+}
+\quad
+\subfigure{
+\includegraphics[width=6.5cm]{Picture/XR_Picture/f19.png}
+}
+\caption{Ablation Experiment-Hybrid-$F_{12}$, $F_{19}$}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure{
+\includegraphics[width=8cm]{Picture/XR_Picture/f24.png}
+}
+\quad
+\subfigure{
+\includegraphics[width=6.5cm]{Picture/XR_Picture/f26.png}
+}
+\caption{Ablation Experiment-Composition-$F_{24}$, $F_{26}$}
+\end{figure}
+
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
